@@ -18,10 +18,3 @@ PoI offers a new infrastructure for global coordination — where transparent im
 
 You can view the whitepaper online here:  
 [View the PoI Lite Whitepaper (Google Docs)](https://YOUR-LINK-HERE)
-
-## Contact
-
-Website: *coming soon*  
-Twitter: [@PoIarchitect](https://twitter.com/PoIarchitect)  
-Telegram: [t.me/proofofimpact](https://t.me/proofofimpact)  
-Email: hello@proofofimpact.xyz
