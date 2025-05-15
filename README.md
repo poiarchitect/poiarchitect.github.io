@@ -17,4 +17,4 @@ PoI offers a new infrastructure for global coordination — where transparent im
 ## Public Whitepaper
 
 You can view the whitepaper online here:  
-[View the PoI Lite Whitepaper (Google Docs)](https://YOUR-LINK-HERE)
+[View the PoI Lite Whitepaper (Google Docs)[ ](https://docs.google.com/document/d/1--sU2IG-gMRrijX6jzB_poc0WwAdqGe85LoaY5_2Rhk/edit?usp=drivesdk)
