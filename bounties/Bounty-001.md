@@ -5,7 +5,7 @@
 **Location:** Kenya  
 
 **Bounty Description:**  
-This demo bounty supports a £5 mobile data top-up for a student in Kenya, helping them stay connected to online learning.
+This demo bounty supports a £5 mobile data top-up for a student in Kenya, helping them stay connected to online learning. Connectivity is essential for digital education and online access.
 
 ---
 
@@ -22,7 +22,9 @@ This demo bounty supports a £5 mobile data top-up for a student in Kenya, helpi
 ## Proof of Delivery
 
 **Proof File:** [View Proof](../proofs/Proof-001.png)  
-*This is a fake screenshot for demo purposes only.*
+*This is a simulated screenshot representing successful action and verification.*
+
+![Proof Image](../proofs/Proof-001.png)
 
 ---
 
@@ -31,3 +33,7 @@ This demo bounty supports a £5 mobile data top-up for a student in Kenya, helpi
 **Stake Returned:** £5  
 **Reward Issued:** +2 $POI (simulated)  
 **Status:** Complete
+
+---
+
+> This bounty demonstrates a fully functional cycle of the Proof of Impact protocol. It is for demo purposes only and serves as the first public loop showing how PoI can coordinate real-world support with transparent verification.
