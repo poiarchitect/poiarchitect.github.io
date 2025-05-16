@@ -22,10 +22,7 @@ This demo bounty supports a £5 mobile data top-up for a student in Kenya, helpi
 ## Proof of Delivery
 
 **Proof File:** [View Proof](https://raw.githubusercontent.com/poiarcitect/Proof-of-impact/main/Proof-001.png)  
-*This is a simulated screenshot representing successful action and verification.*
-
-![Proof Image](https://raw.githubusercontent.com/poiarcitect/Proof-of-impact/main/Proof-001.png)
-![Proof Image](https://raw.githubusercontent.com/poiarcitect/Proof-of-impact/main/Proof-001.png)
+*This is a simulated screenshot representing successful action and verification.
 
 ![Proof Image](../proofs/Proof-001.png)
 
