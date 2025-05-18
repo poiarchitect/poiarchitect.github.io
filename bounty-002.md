@@ -22,10 +22,10 @@
 
 ## Proof of Delivery
 
-**Proof File:** [View Proof](https://raw.githubusercontent.com/poiarchitect/Proof-of-impact/main/proofs/Proof-002.png) 
+**Proof File:** [View Proof](https://raw.githubusercontent.com/poiarchitect/Proof-of-impact/main/proofs/Proof-002.png)  
 *This is a simulated transaction receipt confirming delivery of funds to the verified innovator’s wallet.*
 
-![Proof Image](../proofs/Proof-002.png)
+![Proof Image](https://raw.githubusercontent.com/poiarchitect/Proof-of-impact/main/proofs/Proof-002.png)
 
 ---
 
@@ -43,3 +43,5 @@ This bounty funded a grassroots innovation grant to a Ghanaian student engineer 
 ---
 
 ## Notes
+
+This bounty was selected to demonstrate how PoI can support innovation across borders — fast, direct, and publicly verifiable. No intermediaries. No paperwork. Just impact.
