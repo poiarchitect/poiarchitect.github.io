@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PoIP Staking Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input, select, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e0ffe0;
+      border: 1px solid #b3ffb3;
+      display: none;
+    }
+    .progress {
+      margin-top: 15px;
+      height: 25px;
+      background: #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: #28a745;
+      width: 0%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>PoIP Staking Simulation</h2>
+  <p><strong>Bounty:</strong> Mobile Top-Up for Student in Ghana</p>
+  <p><strong>Goal:</strong> £100</p>
+
+  <form id="stakeForm">
+    <input type="text" id="name" placeholder="Your Name or Wallet Address" required />
+    <input type="number" id="amount" placeholder="Amount to Stake (£)" required min="1" />
+    <button type="submit">Stake Now</button>
+  </form>
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar">£0</div>
+  </div>
+
+  <div class="result" id="resultBox"></div>
+
+  <script>
+    let totalStaked = 0;
+    const goal = 100;
+    const resultBox = document.getElementById('resultBox');
+    const progressBar = document.getElementById('progressBar');
+    const form = document.getElementById('stakeForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      if (!name || amount <= 0) return;
+
+      totalStaked += amount;
+
+      const progressPercent = Math.min((totalStaked / goal) * 100, 100);
+      progressBar.style.width = progressPercent + "%";
+      progressBar.textContent = `£${Math.min(totalStaked, goal).toFixed(2)}`;
+
+      if (totalStaked >= goal) {
+        resultBox.innerHTML = `
+          ✅ <strong>Bounty Fulfilled!</strong><br/>
+          £${goal} raised for the student top-up.<br/>
+          ${name}, you earned <strong>${(amount * 0.025).toFixed(2)} $GROW</strong>.
+        `;
+        resultBox.style.display = 'block';
+      } else {
+        resultBox.innerHTML = `
+          ✅ Thanks, ${name}! You staked £${amount.toFixed(2)}.<br/>
+          Total progress: £${totalStaked.toFixed(2)} of £${goal}<br/>
+          You earned <strong>${(amount * 0.025).toFixed(2)} $GROW</strong> (simulated).
+        `;
+        resultBox.style.display = 'block';
+      }
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
