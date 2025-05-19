@@ -1,62 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PoIP Staking Simulation</title>
-  <script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.umd.min.js"></script>
-  <style>
-    body { font-family: sans-serif; padding: 20px; text-align: center; }
-    button { padding: 10px 20px; font-size: 16px; }
-    input { padding: 10px; font-size: 16px; width: 100px; text-align: center; }
-  </style>
+  <title>Stake Simulation – Sepolia Testnet</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
 </head>
 <body>
-  <h1>Stake Simulation – Sepolia Testnet</h1>
+  <h2>Stake Simulation – Sepolia Testnet</h2>
   <p>Connect your MetaMask wallet and simulate staking on Sepolia.</p>
 
-  <button onclick="connectWallet()">Connect Wallet</button>
-  <p id="wallet-address"></p>
+  <button id="connectButton">Connect Wallet</button><br><br>
+  <label>Enter amount to stake (ETH):</label><br>
+  <input id="stakeAmount" type="text" value="0.01" /><br><br>
+  <button id="stakeButton">Simulate Stake</button>
 
-  <p>Enter amount to stake (ETH):</p>
-  <input type="number" id="stakeAmount" placeholder="0.01" step="0.01" min="0">
-  <br><br>
-  <button onclick="stake()">Simulate Stake</button>
-  <p id="result"></p>
+  <p id="status"></p>
 
   <script>
-    let provider, signer;
+    let provider;
+    let signer;
 
-    async function connectWallet() {
-      if (window.ethereum) {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
-        provider = new ethers.providers.Web3Provider(window.ethereum);
-        signer = await provider.getSigner();
-        const address = await signer.getAddress();
-        document.getElementById("wallet-address").innerText = `Connected: ${address}`;
+    document.getElementById("connectButton").onclick = async function () {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          await ethereum.request({ method: 'eth_requestAccounts' });
+          provider = new ethers.providers.Web3Provider(window.ethereum);
+          signer = provider.getSigner();
+          document.getElementById("status").innerText = "Wallet connected.";
+        } catch (err) {
+          document.getElementById("status").innerText = "Connection error: " + err.message;
+        }
       } else {
-        alert("Please install MetaMask.");
+        document.getElementById("status").innerText = "MetaMask is not installed.";
       }
-    }
+    };
 
-    async function stake() {
-      const amount = document.getElementById("stakeAmount").value;
-      if (!amount || amount <= 0) {
-        document.getElementById("result").innerText = "Enter a valid amount.";
+    document.getElementById("stakeButton").onclick = async function () {
+      if (!signer) {
+        document.getElementById("status").innerText = "Please connect wallet first.";
         return;
       }
 
-      document.getElementById("result").innerText = "Simulating transaction...";
-
+      const amount = document.getElementById("stakeAmount").value;
       try {
         const tx = await signer.sendTransaction({
-          to: signer.getAddress(), // simulate staking to self
+          to: signer.getAddress(), // self-transfer to simulate stake
           value: ethers.utils.parseEther(amount)
         });
-
-        document.getElementById("result").innerText = `Simulated! TX Hash: ${tx.hash}`;
+        document.getElementById("status").innerText = "Stake simulated! TX: " + tx.hash;
       } catch (err) {
-        document.getElementById("result").innerText = `Error: ${err.message}`;
+        document.getElementById("status").innerText = "Transaction failed: " + err.message;
       }
-    }
+    };
   </script>
 </body>
 </html>
