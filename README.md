@@ -18,3 +18,11 @@ PoI offers a new infrastructure for global coordination — where transparent im
 
 You can view the whitepaper online here:  
 [View the PoI Lite Whitepaper (Google Docs)[ ](https://docs.google.com/document/d/1--sU2IG-gMRrijX6jzB_poc0WwAdqGe85LoaY5_2Rhk/edit?usp=drivesdk)
+## License
+
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+You are free to use, modify, and distribute this work — provided all derivative works remain open-source under the same license and credit the original authors.
+
+Copyright © 2025  
+Proof of Impact Protocol (PoIP)
