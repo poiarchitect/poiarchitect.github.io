@@ -1,76 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proof of Impact Protocol (PoIP)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proof of Impact Protocol</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f0f4f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 480px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
       text-align: center;
     }
     h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 20px;
-      margin-top: 30px;
-      color: #222;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #00d4ff;
     }
     p {
-      font-size: 16px;
-      color: #444;
+      margin-bottom: 25px;
+      font-size: 14px;
     }
-    a {
+    a.button {
       display: block;
-      margin: 10px 0;
-      padding: 12px;
-      background: #007acc;
-      color: white;
+      background-color: #00d4ff;
+      color: #000;
       text-decoration: none;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    a:hover {
-      background: #005fa3;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      padding: 4px 0;
-      font-size: 15px;
-      color: #333;
+    a.button:hover {
+      background-color: #00aacc;
     }
   </style>
 </head>
 <body>
-
-  <h1>Welcome to the Proof of Impact Protocol (PoIP)</h1>
-  <p>PoIP is a global funding system that turns pooled staking into real-world aid.</p>
-  <p>Stake your funds to grow the PoIP treasury. You’ll get your full stake back and earn $GROW — a symbolic reward for helping the world.</p>
-  <p>All bounties are funded from <strong>treasury yield only</strong>, ensuring transparency and sustainability. The longer you stake, the more $GROW you receive.</p>
-
-  <a href="./stake.html">Stake Simulation</a>
-  <a href="./yield.html">Treasury Yield Simulation</a>
-  <a href="./bounties/bounty-001.md">View Bounty Proof #001</a>
-  <a href="./bounties/bounty-002.md">View Bounty Proof #002</a>
-  <a href="https://docs.google.com/document/d/11KxHDERELrsdWhGTLcF7VTn0JAna-wwrc2I3F40DKiY/edit?usp=drivesdk" target="_blank">View Live Whitepaper (Google Docs)</a>
-
-  <h2>Treasury Breakdown (Example)</h2>
-  <ul>
-    <li>PoIP Treasury Total: £10,000</li>
-    <li>- £2,000 Staker Pool (short-term yield)</li>
-    <li>- £8,000 Core Fund (long-term protocol yield)</li>
-  </ul>
-
-  <h2>Impact Flow</h2>
-  <p>Yield is collected from both pools. When enough yield is available, the next verified bounty in the impact queue is funded. Proof is published for all to see.</p>
-
+  <div class="container">
+    <h1>Welcome to the Proof of Impact Protocol</h1>
+    <p>Select a live module below to explore the system in action:</p>
+    <a href="stake.html" class="button">Stake Simulation</a>
+    <a href="yield.html" class="button">Treasury Yield Simulation</a>
+    <a href="proofs/001.png" class="button" target="_blank">View Live Bounty Proof #001</a>
+    <a href="proofs/002.png" class="button" target="_blank">View Live Bounty Proof #002</a>
+    <a href="https://docs.google.com/document/d/11KxHDERELrsdWhGTLcF7VTn0JAna-wwrc2I3F40DKiY/edit" class="button" target="_blank">View Live Whitepaper (Google Docs)</a>
+  </div>
 </body>
 </html>
