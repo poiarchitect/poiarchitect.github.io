@@ -1,18 +1,12 @@
-## Bounty #002 – Humanitarian Support
+## Proof of Impact Proposal
 
-### Overview  
-This bounty provides mobile data top-up for a student in Kenya to support their online education access.
+- This actionable proposal specifies purchasing medical supplies for a local clinic.
 
----
-## Proof of Delivery
+## Proof File
 
-**Proof File:** [View Proof](https://raw.githubusercontent.com/poiarchitect/Proof-of-impact/refs/heads/main/proofs/91277E0B-2F54-4F63-AF99-C8E9AFD18D8B.png)  
-*This is a simulated screenshot representing successful action and verification.*
+- [View Proof](../Proof-002.png)
+- ![Proof Image](../Proof-002.png)
 
-![Proof Image](https://raw.githubusercontent.com/poiarchitect/Proof-of-impact/refs/heads/main/proofs/91277E0B-2F54-4F63-AF99-C8E9AFD18D8B.png)
+## Completion Summary
 
-
----
-
-### Completion Summary  
-Bounty fulfilled and verified via direct mobile credit top-up. Action recorded on-chain and publicly accessible.
+- This proposal has been fulfilled, as evidenced by the completed purchase.
