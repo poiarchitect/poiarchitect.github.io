@@ -3,65 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proof of Impact Protocol (PoIP)</title>
+  <title>Proof of Impact Protocol</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+    }
+
+    .container {
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
-      background: #f4f4f4;
-      color: #222;
-      line-height: 1.6;
+      background: linear-gradient(135deg, #0d1f3c, #152f52);
+      color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-    h1, h2 {
+
+    h1 {
       text-align: center;
+      margin-bottom: 10px;
+      font-size: 26px;
     }
-    .button {
-      display: block;
-      margin: 15px auto;
-      padding: 15px 25px;
-      background: #007BFF;
-      color: white;
+
+    h2 {
       text-align: center;
-      text-decoration: none;
+      margin-top: 0;
       font-size: 18px;
-      border-radius: 6px;
-      width: 90%;
-      max-width: 300px;
+      font-weight: normal;
     }
-    .button:hover {
-      background: #0056b3;
-    }
-    .image-section {
-      margin-top: 50px;
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
       text-align: center;
     }
-    .image-section img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+
+    h3 {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      margin: 8px 0;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button-container a {
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: #ffffff;
+      border-radius: 6px;
+      font-weight: bold;
+      width: 80%;
+      text-align: center;
+    }
+
+    .button-container a:hover {
+      background-color: #0056b3;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 13px;
+      color: #cccccc;
     }
   </style>
 </head>
 <body>
-
-  <h1>Proof of Impact Protocol (PoIP)</h1>
-  <p style="text-align: center;">
-    A self-sustaining, yield-powered system for global aid and innovation — with public proof and no donations required.
-  </p>
-
-  <a class="button" href="stake.html">Staking Simulation</a>
-  <a class="button" href="yield.html">Treasury Yield Simulation</a>
-  <a class="button" href="bounty001.html">Bounty Proof #001</a>
-  <a class="button" href="bounty002.html">Bounty Proof #002</a>
-  <a class="button" href="https://docs.google.com/document/d/11KxHDERELrsdWhGTLcF7VTn0JAna-wwrc2I3F40DKiY/edit?usp=drivesdk">View Full Whitepaper</a>
-
-  <div class="image-section">
-    <h2>Explore the PoIP One-Pager</h2>
-    <img src="A_webpage_for_the_Proof_of_Impact_Protocol_(PoIP)_.png" alt="PoIP One-Pager">
+  <div class="container">
+    <h1>Proof of Impact Protocol</h1>
+    <h2>Stake to Make a Difference</h2>
+    <p>
+      Proof of Impact (PoIP) is a decentralized protocol that incentivizes positive social outcomes through impact bounties.
+    </p>
+    <p>
+      Stakeholders make a difference by staking cryptocurrency, helping to grow the PoIP Treasury. The yield from the Treasury is used to fund real-world impact bounties, promoting and tracking verified proof of impact.
+    </p>
+    <h3>Why Stake?</h3>
+    <ul>
+      <li>• Drive Positive Change</li>
+      <li>• Earn Rewards</li>
+    </ul>
+    <p>
+      $GROW tokens are non-speculative rewards given to stakeholders
+    </p>
+    <div class="button-container">
+      <a href="stake.html">Stake Simulation</a>
+      <a href="yield.html">Treasury Yield Simulation</a>
+      <a href="https://docs.google.com/document/d/11KxHDERELrsdWhGTLcF7VTn0JAna-wwrc2I3F40DKiY/edit?usp=drivesdk" target="_blank">View Live Whitepaper</a>
+    </div>
+    <div class="footer">
+      © 2025 PoIP. Licensed under the GNU General Public License
+    </div>
   </div>
-
 </body>
 </html>
