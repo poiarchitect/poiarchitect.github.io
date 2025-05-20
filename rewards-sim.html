@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$GROW Reward Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+    a {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simulate Your $GROW Rewards</h1>
+  <p>Enter how many days you plan to stake to simulate symbolic $GROW reward:</p>
+  <input type="number" id="days" placeholder="Days staked" />
+  <button onclick="simulateReward()">Simulate Reward</button>
+
+  <div id="output"></div>
+
+  <a href="index.html">&larr; Back to Homepage</a>
+
+  <script>
+    function simulateReward() {
+      const days = parseInt(document.getElementById("days").value);
+      if (isNaN(days) || days <= 0) {
+        document.getElementById("output").textContent = "Please enter a valid number of days.";
+        return;
+      }
+
+      const rewardRate = 5; // 5 $GROW per day (symbolic)
+      const total = days * rewardRate;
+
+      document.getElementById("output").textContent =
+        `Estimated Symbolic Reward: ${total} $GROW (non-transferable)`;
+    }
+  </script>
+</body>
+</html>
