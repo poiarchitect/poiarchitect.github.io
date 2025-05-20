@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Proof of Impact Protocol</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proof of Impact Protocol</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: #f4f4f4;
       text-align: center;
+      padding: 40px;
     }
+
     h1 {
       color: #2c3e50;
     }
-    table {
-      width: 100%;
-      max-width: 600px;
-      margin: 30px auto;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 12px;
-    }
-    th {
-      background-color: #eee;
-    }
-    a.button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
+
+    .button {
+      display: block;
+      width: 240px;
+      margin: 15px auto;
+      padding: 14px;
       background-color: #007bff;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s;
     }
-    a.button:hover {
+
+    .button:hover {
       background-color: #0056b3;
     }
   </style>
@@ -45,29 +37,9 @@
 <body>
   <h1>Proof of Impact Protocol</h1>
 
-  <a class="button" href="whitepaper.html">View Whitepaper</a>
-  <a class="button" href="stake.html">Stake Simulation</a>
-  <a class="button" href="reward.html">Reward ($GROW) Page</a>
-  <a class="button" href="yield.html">Treasury Yield Simulation</a>
-
-  <h2>Live Bounty Proofs</h2>
-  <table>
-    <tr>
-      <th>Bounty</th>
-      <th>Proof Link</th>
-    </tr>
-    <tr>
-      <td>#001</td>
-      <td><a href="proof-001.html" target="_blank">View Proof</a></td>
-    </tr>
-    <tr>
-      <td>#002</td>
-      <td><a href="Proof-002.png" target="_blank">View Proof</a></td>
-    </tr>
-    <tr>
-      <td>#003</td>
-      <td><a href="Proof-003.html" target="_blank">View Proof</a></td>
-    </tr>
-  </table>
+  <a href="whitepaper.html" class="button">View Whitepaper</a>
+  <a href="stake.html" class="button">Stake Simulation</a>
+  <a href="reward.html" class="button">Reward ($GROW) Page</a>
+  <a href="bounties.html" class="button">Bounty Proofs</a>
 </body>
 </html>
