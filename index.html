@@ -7,39 +7,68 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
       text-align: center;
-      padding: 40px;
     }
-
     h1 {
       color: #2c3e50;
+      margin-bottom: 10px;
     }
-
-    .button {
-      display: block;
-      width: 240px;
-      margin: 15px auto;
-      padding: 14px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
+    p.description {
       font-size: 16px;
-      transition: background-color 0.3s;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
     }
-
-    .button:hover {
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    a.button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 250px;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+    a.button:hover {
       background-color: #0056b3;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Proof of Impact Protocol</h1>
 
-  <a href="whitepaper.html" class="button">View Whitepaper</a>
-  <a href="stake.html" class="button">Stake Simulation</a>
-  <a href="reward.html" class="button">Reward ($GROW) Page</a>
-  <a href="bounties.html" class="button">Bounty Proofs</a>
+  <h1>Proof of Impact Protocol</h1>
+  <p class="description">
+    The Proof of Impact Protocol (PoIP) is a decentralized system that enables verifiable real-world aid, innovation, and funding through crypto staking. Transparent, trustless, and impact-driven.
+  </p>
+
+  <div class="button-grid">
+    <a href="whitepaper.html" class="button">View Whitepaper</a>
+    <a href="stake.html" class="button">Stake Simulation</a>
+    <a href="reward.html" class="button">Reward ($GROW) Page</a>
+    <a href="bounties.html" class="button">View All Bounties</a>
+    <a href="grow.html" class="button">$GROW Token Viewer</a>
+    <a href="yield.html" class="button">Treasury Yield Simulator</a>
+  </div>
+
+  <footer>
+    Licensed under GNU GPL v3.0 — Open Source for Public Good
+  </footer>
+
 </body>
 </html>
