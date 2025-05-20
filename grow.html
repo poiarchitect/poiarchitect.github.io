@@ -1,33 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>$GROW Token Balance</title>
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #f4f8fc;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       text-align: center;
+      padding-top: 100px;
+      background-color: #f9f9f9;
     }
     button {
-      padding: 12px 20px;
-      font-size: 16px;
-      margin-top: 20px;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 4px;
     }
-    .balance {
-      margin-top: 30px;
+    #balance {
+      margin-top: 20px;
       font-size: 18px;
       color: #333;
     }
@@ -35,43 +28,41 @@
 </head>
 <body>
 
-  <h2>$GROW Token Balance</h2>
-  <p>Connect your wallet to see your current GROW balance.</p>
-  <button onclick="connectWallet()">Connect Wallet</button>
+<h1>$GROW Token Balance</h1>
+<p>Connect your wallet to see your current GROW balance.</p>
+<button onclick="connectWallet()">Connect Wallet</button>
+<div id="balance"></div>
 
-  <div class="balance" id="balanceDisplay"></div>
+<script>
+  const tokenAddress = '0x975D8d9D9c62416662d9c01A197522102aADDf20';
+  const tokenABI = [
+    "function balanceOf(address owner) view returns (uint256)",
+    "function decimals() view returns (uint8)"
+  ];
 
-  <script>
-    const contractAddress = "0x975D8d9D9c62416662d9c01A197522102aADDf20";
-    const tokenABI = [
-      "function balanceOf(address owner) view returns (uint256)",
-      "function decimals() view returns (uint8)",
-      "function name() view returns (string)"
-    ];
-
-    async function connectWallet() {
-      if (typeof window.ethereum !== 'undefined') {
-        try {
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          await provider.send("eth_requestAccounts", []);
-          const signer = provider.getSigner();
-          const address = await signer.getAddress();
-
-          const contract = new ethers.Contract(contractAddress, tokenABI, provider);
-          const balance = await contract.balanceOf(address);
-          const decimals = await contract.decimals();
-
-          const formatted = ethers.utils.formatUnits(balance, decimals);
-          document.getElementById("balanceDisplay").innerHTML = `Your $GROW balance: <strong>${formatted}</strong>`;
-        } catch (error) {
-          console.error(error);
-          alert("Error connecting to wallet.");
-        }
-      } else {
-        alert("MetaMask not detected.");
+  async function connectWallet() {
+    try {
+      if (!window.ethereum) {
+        alert("Please use MetaMask to view your GROW balance.");
+        return;
       }
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
+      const contract = new ethers.Contract(tokenAddress, tokenABI, provider);
+      const balance = await contract.balanceOf(address);
+      const decimals = await contract.decimals();
+      const formatted = ethers.utils.formatUnits(balance, decimals);
+
+      document.getElementById('balance').innerText = `Your GROW Balance: ${formatted}`;
+    } catch (err) {
+      console.error(err);
+      alert("Error connecting to wallet. Make sure MetaMask is installed and you're on the Sepolia testnet.");
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
