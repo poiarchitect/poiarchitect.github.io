@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$GROW Token Balance</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f4f8fc;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .balance {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>$GROW Token Balance</h2>
+  <p>Connect your wallet to see your current GROW balance.</p>
+  <button onclick="connectWallet()">Connect Wallet</button>
+
+  <div class="balance" id="balanceDisplay"></div>
+
+  <script>
+    const contractAddress = "YOUR_CONTRACT_ADDRESS_HERE"; // Replace with your deployed GROW token address
+    const tokenABI = [
+      "function balanceOf(address owner) view returns (uint256)",
+      "function decimals() view returns (uint8)",
+      "function name() view returns (string)"
+    ];
+
+    async function connectWallet() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          const address = await signer.getAddress();
+
+          const contract = new ethers.Contract(contractAddress, tokenABI, provider);
+          const balance = await contract.balanceOf(address);
+          const decimals = await contract.decimals();
+
+          const formatted = ethers.utils.formatUnits(balance, decimals);
+          document.getElementById("balanceDisplay").innerHTML = `Your $GROW balance: <strong>${formatted}</strong>`;
+        } catch (error) {
+          console.error(error);
+          alert("Error connecting to wallet.");
+        }
+      } else {
+        alert("MetaMask not detected.");
+      }
+    }
+  </script>
+
+</body>
+</html>
