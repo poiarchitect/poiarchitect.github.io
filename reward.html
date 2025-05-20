@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$GROW Reward Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #222;
+    }
+    input {
+      padding: 10px;
+      margin-top: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #333;
+      background: #e2f0d9;
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>$GROW Reward Estimator</h1>
+  <p>Enter your staking duration below to estimate your symbolic $GROW reward.</p>
+
+  <label for="days">Days Staked:</label><br/>
+  <input type="number" id="days" placeholder="e.g. 30"><br/>
+
+  <label for="amount">Amount Staked (ETH):</label><br/>
+  <input type="number" id="amount" placeholder="e.g. 1"><br/>
+
+  <button onclick="calculateReward()">Simulate Reward</button>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    function calculateReward() {
+      const days = parseInt(document.getElementById('days').value);
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      if (isNaN(days) || isNaN(amount) || days <= 0 || amount <= 0) {
+        alert('Please enter valid positive numbers.');
+        return;
+      }
+
+      // Simple symbolic reward model: 1 GROW per ETH per day
+      const reward = days * amount * 1;
+
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').innerText = 
+        `You would earn approximately ${reward.toFixed(2)} $GROW tokens symbolically.`;
+    }
+  </script>
+
+</body>
+</html>
