@@ -1,107 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>PoIP – Bounty Queue</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      padding: 40px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .treasury {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 18px;
-      color: #444;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    th, td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-    th {
-      background: #efefef;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 18px;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-  </style>
+    <title>Active Bounties</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+        th { background-color: #efefef; }
+        h2 { text-align: center; }
+        .treasury { text-align: center; margin-top: 10px; font-size: 18px; color: #444; }
+        .buttons { margin-top: 30px; text-align: center; }
+        .buttons a {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px;
+        }
+        .buttons a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Active Bounties</h1>
-  <div class="treasury">
-    Estimated Treasury Balance: <strong>£1,280</strong> (Simulated)
-  </div>
+    <h2>Active Bounties</h2>
+    <div class="treasury">
+        Estimated Treasury Balance: <strong>£1,280</strong> (Simulated)
+    </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Bounty ID</th>
-        <th>Description</th>
-        <th>Target</th>
-        <th>Status</th>
-        <th>Proof</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>#001</td>
-        <td>Mobile top-up for student in Ghana</td>
-        <td>£100</td>
-        <td>Funded</td>
-        <td><a href="proof-001.html" target="_blank">View Proof</a></td>
-      </tr>
-      <tr>
-        <td>#002</td>
-        <td>Clean water filter delivery – rural Kenya</td>
-        <td>£120</td>
-        <td>Pending</td>
-        <td>Awaiting</td>
-      </tr>
-      <tr>
-        <td>#003</td>
-        <td>Simulated stake – Sepolia Testnet</td>
-        <td>0.01 SepoliaETH</td>
-        <td>Completed</td>
-        <td><a href="proof-003.html" target="_blank">View Proof</a></td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Bounty ID</th>
+                <th>Description</th>
+                <th>Target</th>
+                <th>Status</th>
+                <th>Proof</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#001</td>
+                <td>Mobile top-up for student in Ghana</td>
+                <td>£100</td>
+                <td>Funded</td>
+                <td><a href="proof-001.html" target="_blank">View Proof</a></td>
+            </tr>
+            <tr>
+                <td>#002</td>
+                <td>Clean water filter delivery – rural Kenya</td>
+                <td>£120</td>
+                <td>Pending</td>
+                <td><a href="proof-002.html" target="_blank">Awaiting</a></td>
+            </tr>
+            <tr>
+                <td>#003</td>
+                <td>Simulated stake – Sepolia Testnet</td>
+                <td>0.01 SepoliaETH</td>
+                <td>Completed</td>
+                <td><a href="https://sepolia.etherscan.io/tx/0xc6d7343ce21d1ad0492d77704d21b4e72efe735da1f869bf79a0ec55575258da" target="_blank">View Proof</a></td>
+            </tr>
+        </tbody>
+    </table>
 
-  <div class="footer">
-    <a class="btn" href="index.html">Back to Homepage</a>
-    <a class="btn" href="https://docs.google.com/document/d/1n2LXO1uRC_yQ9AxVPdjZ_s41-QM8cZobAb5ljT_WvKw" target="_blank">View Whitepaper</a>
-  </div>
+    <div class="buttons">
+        <a href="index.html">Back to Homepage</a>
+        <a href="https://docs.google.com/document/d/1avZ_tsyX0rBXp0aErEyBDrK1YfDZfwfKXW_EhjkKpDM/edit" target="_blank">View Whitepaper</a>
+    </div>
 
 </body>
 </html>
