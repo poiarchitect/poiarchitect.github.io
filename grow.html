@@ -1,68 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>$GROW Token Balance</title>
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+  <title>$GROW Reward Viewer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
+      padding: 20px;
       text-align: center;
-      padding-top: 100px;
-      background-color: #f9f9f9;
+      background: #f5f7fa;
+    }
+    h2 {
+      color: #2c3e50;
     }
     button {
-      background-color: #007bff;
+      padding: 10px 20px;
+      background: #007bff;
       color: white;
       border: none;
-      padding: 12px 24px;
+      border-radius: 6px;
       font-size: 16px;
+      margin-top: 20px;
       cursor: pointer;
-      border-radius: 4px;
     }
     #balance {
       margin-top: 20px;
       font-size: 18px;
-      color: #333;
+      color: green;
     }
   </style>
 </head>
 <body>
+  <h2>Check Your $GROW Token Balance</h2>
+  <button onclick="getBalance()">Connect Wallet & View Balance</button>
+  <div id="balance"></div>
 
-<h1>$GROW Token Balance</h1>
-<p>Connect your wallet to see your current GROW balance.</p>
-<button onclick="connectWallet()">Connect Wallet</button>
-<div id="balance"></div>
+  <script>
+    const tokenAddress = "0x975D8d9D9c62416662d9c01A197522102aADDf20";
+    const tokenABI = [
+      "function balanceOf(address) view returns (uint256)",
+      "function decimals() view returns (uint8)"
+    ];
 
-<script>
-  const tokenAddress = '0x975D8d9D9c62416662d9c01A197522102aADDf20';
-  const tokenABI = [
-    "function balanceOf(address owner) view returns (uint256)",
-    "function decimals() view returns (uint8)"
-  ];
-
-  async function connectWallet() {
-    try {
-      if (!window.ethereum) {
-        alert("Please use MetaMask to view your GROW balance.");
-        return;
+    async function getBalance() {
+      if (window.ethereum) {
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const userAddress = await signer.getAddress();
+        const contract = new ethers.Contract(tokenAddress, tokenABI, provider);
+        const balance = await contract.balanceOf(userAddress);
+        const decimals = await contract.decimals();
+        const formatted = ethers.utils.formatUnits(balance, decimals);
+        document.getElementById("balance").textContent = `$GROW Balance: ${formatted}`;
+      } else {
+        alert("MetaMask not found. Please install it.");
       }
-
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      await provider.send("eth_requestAccounts", []);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      const contract = new ethers.Contract(tokenAddress, tokenABI, provider);
-      const balance = await contract.balanceOf(address);
-      const decimals = await contract.decimals();
-      const formatted = ethers.utils.formatUnits(balance, decimals);
-
-      document.getElementById('balance').innerText = `Your GROW Balance: ${formatted}`;
-    } catch (err) {
-      console.error(err);
-      alert("Error connecting to wallet. Make sure MetaMask is installed and you're on the Sepolia testnet.");
     }
-  }
-</script>
-
+  </script>
 </body>
 </html>
