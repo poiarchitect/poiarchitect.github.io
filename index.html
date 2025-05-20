@@ -2,50 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Proof of Impact Protocol</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f5f7fa;
       margin: 0;
-      padding: 20px;
-      color: #333;
+      padding: 0;
       text-align: center;
+      color: #333;
     }
     h1 {
+      margin-top: 40px;
+      font-size: 2em;
       color: #2c3e50;
-      margin-bottom: 10px;
     }
-    p.description {
-      font-size: 16px;
+    p {
       max-width: 600px;
-      margin: 0 auto 30px auto;
+      margin: 20px auto;
+      font-size: 1.05em;
+      line-height: 1.6;
     }
-    .button-grid {
+    .button-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
     }
     a.button {
-      display: inline-block;
-      padding: 12px 20px;
       background-color: #007bff;
-      color: #fff;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
       text-decoration: none;
       border-radius: 5px;
-      width: 250px;
-      text-align: center;
-      transition: background-color 0.2s ease;
+      width: 260px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
     a.button:hover {
       background-color: #0056b3;
     }
     footer {
-      margin-top: 60px;
-      font-size: 14px;
+      margin-top: 40px;
+      font-size: 0.9em;
       color: #777;
     }
   </style>
@@ -53,21 +54,22 @@
 <body>
 
   <h1>Proof of Impact Protocol</h1>
-  <p class="description">
-    The Proof of Impact Protocol (PoIP) is a decentralized system that enables verifiable real-world aid, innovation, and funding through crypto staking. Transparent, trustless, and impact-driven.
+
+  <p>
+    Proof of Impact (PoIP) is a decentralized protocol that transforms staking into real-world impact.
+    By staking, users help grow the PoIP treasury, which then allocates verified funding to global needs like humanitarian aid, infrastructure, and innovation — all powered by on-chain proof.
   </p>
 
-  <div class="button-grid">
+  <div class="button-container">
     <a href="whitepaper.html" class="button">View Whitepaper</a>
     <a href="stake.html" class="button">Stake Simulation</a>
+    <a href="yield.html" class="button">Treasury Yield Simulation</a>
     <a href="reward.html" class="button">Reward ($GROW) Page</a>
-    <a href="bounties.html" class="button">View All Bounties</a>
-    <a href="grow.html" class="button">$GROW Token Viewer</a>
-    <a href="yield.html" class="button">Treasury Yield Simulator</a>
+    <a href="bounties.html" class="button">Bounty Proofs</a>
   </div>
 
   <footer>
-    Licensed under GNU GPL v3.0 — Open Source for Public Good
+    Licensed under GNU GPLv3 | &copy; 2025 Proof of Impact
   </footer>
 
 </body>
