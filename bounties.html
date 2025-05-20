@@ -1,75 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Active Bounties</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
-        th { background-color: #efefef; }
-        h2 { text-align: center; }
-        .treasury { text-align: center; margin-top: 10px; font-size: 18px; color: #444; }
-        .buttons { margin-top: 30px; text-align: center; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
         .buttons a {
-            display: inline-block;
-            padding: 10px 18px;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
             background-color: #007bff;
             color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            margin: 10px;
-        }
-        .buttons a:hover {
-            background-color: #0056b3;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-
     <h2>Active Bounties</h2>
-    <div class="treasury">
-        Estimated Treasury Balance: <strong>£1,280</strong> (Simulated)
-    </div>
-
+    <p><strong>Estimated Treasury Balance:</strong> £1,280 (Simulated)</p>
     <table>
-        <thead>
-            <tr>
-                <th>Bounty ID</th>
-                <th>Description</th>
-                <th>Target</th>
-                <th>Status</th>
-                <th>Proof</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>#001</td>
-                <td>Mobile top-up for student in Ghana</td>
-                <td>£100</td>
-                <td>Funded</td>
-                <td><a href="proof-001.html" target="_blank">View Proof</a></td>
-            </tr>
-            <tr>
-                <td>#002</td>
-                <td>Clean water filter delivery – rural Kenya</td>
-                <td>£120</td>
-                <td>Pending</td>
-                <td><a href="proof-002.html" target="_blank">Awaiting</a></td>
-            </tr>
-            <tr>
-                <td>#003</td>
-                <td>Simulated stake – Sepolia Testnet</td>
-                <td>0.01 SepoliaETH</td>
-                <td>Completed</td>
-                <td><a href="https://sepolia.etherscan.io/tx/0xc6d7343ce21d1ad0492d77704d21b4e72efe735da1f869bf79a0ec55575258da" target="_blank">View Proof</a></td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>Bounty ID</th>
+            <th>Description</th>
+            <th>Target</th>
+            <th>Status</th>
+            <th>Proof</th>
+        </tr>
+        <tr>
+            <td>#001</td>
+            <td>Mobile top-up for student in Ghana</td>
+            <td>£100</td>
+            <td>Funded</td>
+            <td><a href="https://poiarchitect.github.io/Proof-of-impact/proof-001.html" target="_blank">View Proof</a></td>
+        </tr>
+        <tr>
+            <td>#002</td>
+            <td>Clean water filter delivery – rural Kenya</td>
+            <td>£120</td>
+            <td>Pending</td>
+            <td><a href="https://sepolia.etherscan.io/tx/0xb8d255108c7e5303e9ecb87ccca53612b7c8042f40d4465b73dd99b23c52f03e" target="_blank">View Proof</a></td>
+        </tr>
+        <tr>
+            <td>#003</td>
+            <td>Simulated stake – Sepolia Testnet</td>
+            <td>0.01 SepoliaETH</td>
+            <td>Completed</td>
+            <td><a href="https://sepolia.etherscan.io/tx/0xc6d7343ce21d1ad0492d77704d21b4e72efe735da1f869bf79a0ec55575258da" target="_blank">View Proof</a></td>
+        </tr>
     </table>
-
     <div class="buttons">
         <a href="index.html">Back to Homepage</a>
-        <a href="https://docs.google.com/document/d/1avZ_tsyX0rBXp0aErEyBDrK1YfDZfwfKXW_EhjkKpDM/edit" target="_blank">View Whitepaper</a>
+        <a href="https://docs.google.com/document/d/1EzNjKObUDqLRA-cTkg4ipL2womG0ydzxDzzOQeEA_OU/edit?usp=sharing" target="_blank">View Whitepaper</a>
     </div>
-
 </body>
 </html>
