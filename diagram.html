@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PoIP System Diagram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+    svg {
+      max-width: 720px;
+      width: 100%;
+    }
+    .node {
+      fill: #007bff;
+      stroke: #0056b3;
+      stroke-width: 1;
+    }
+    .node text {
+      fill: #fff;
+      font-size: 12px;
+      pointer-events: none;
+    }
+    .edge {
+      stroke: #555;
+      stroke-width: 1.5;
+      marker-end: url(#arrow);
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a.back:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<h1>PoIP Architecture Diagram</h1>
+
+<svg viewBox="0 0 800 600">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- Nodes -->
+  <circle cx="400" cy="90" r="60" class="node"/>
+  <text x="400" y="90" dy="5" text-anchor="middle" font-size="14" fill="#fff">Dual<br/>Treasury</text>
+
+  <circle cx="150" cy="260" r="60" class="node"/>
+  <text x="150" y="260" dy="5" text-anchor="middle" font-size="13" fill="#fff">Low-Risk<br/>Yield</text>
+
+  <circle cx="650" cy="260" r="60" class="node"/>
+  <text x="650" y="260" dy="5" text-anchor="middle" font-size="13" fill="#fff">Impact<br/>Bounties</text>
+
+  <circle cx="400" cy="510" r="60" class="node"/>
+  <text x="400" y="510" dy="5" text-anchor="middle" font-size="13" fill="#fff">$GROW<br/>Rewards</text>
+
+  <circle cx="150" cy="510" r="60" class="node"/>
+  <text x="150" y="510" dy="5" text-anchor="middle" font-size="13" fill="#fff">Stakers</text>
+
+  <circle cx="650" cy="510" r="60" class="node"/>
+  <text x="650" y="510" dy="5" text-anchor="middle" font-size="13" fill="#fff">AI Engine</text>
+
+  <circle cx="400" cy="260" r="60" class="node"/>
+  <text x="400" y="260" dy="5" text-anchor="middle" font-size="13" fill="#fff">Proof<br/>Layer</text>
+
+  <!-- Edges -->
+  <line x1="400" y1="150" x2="150" y2="200" class="edge"/>
+  <line x1="400" y1="150" x2="650" y2="200" class="edge"/>
+  <line x1="150" y1="320" x2="400" y2="460" class="edge"/>
+  <line x1="650" y1="320" x2="400" y2="460" class="edge"/>
+  <line x1="150" y1="570" x2="400" y2="570" class="edge"/>
+  <line x1="400" y1="570" x2="650" y2="570" class="edge"/>
+  <line x1="400" y1="320" x2="400" y2="450" class="edge"/>
+  <line x1="400" y1="150" x2="400" y2="200" class="edge"/>
+</svg>
+
+<a href="index.html" class="back">← Back to Homepage</a>
+
+</body>
+</html>
