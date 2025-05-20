@@ -1,48 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Proof of Impact Protocol</title>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proof of Impact (PoIP)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-      color: #333;
+      text-align: center;
+      padding: 40px;
+      background-color: #f4f4f4;
     }
     h1 {
       color: #2c3e50;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin: 10px 0;
-    }
-    a {
-      color: #007bff;
+    a.button {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 15px auto;
+      padding: 14px 20px;
+      background-color: #007bff;
+      color: white;
       text-decoration: none;
-      font-size: 18px;
+      border-radius: 6px;
+      font-size: 16px;
     }
-    a:hover {
-      text-decoration: underline;
+    a.button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 700px;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .footer {
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Proof of Impact Protocol (PoIP)</h1>
-  <p>Explore the live bounty proofs, staking simulator, treasury yield calculator, and whitepaper for the protocol.</p>
-  
-  <ul>
-    <li><a href="stake.html">Stake Simulation</a></li>
-    <li><a href="yield.html">Treasury Yield Simulation</a></li>
-    <li><a href="proof-001.html">Bounty Proof #001</a></li>
-    <li><a href="proof-002.html">Bounty Proof #002</a></li>
-    <li><a href="proof-003.html">Bounty Proof #003</a></li>
-    <li><a href="grow.html">$GROW Token Viewer</a></li>
-    <li><a href="whitepaper.html">View Live Whitepaper</a></li>
-  </ul>
+
+  <h1>Proof of Impact Protocol</h1>
+
+  <a class="button" href="whitepaper.html">View Whitepaper</a>
+  <a class="button" href="stake.html">Stake Simulation</a>
+  <a class="button" href="yield.html">Treasury Yield Simulation</a>
+  <a class="button" href="reward.html">Reward ($GROW) Page</a>
+  <a class="button" href="grow.html">Connect Wallet ($GROW)</a>
+
+  <div class="footer">
+    <h2>Impact Bounties</h2>
+    <table>
+      <tr>
+        <th>Bounty</th>
+        <th>Description</th>
+        <th>Proof</th>
+      </tr>
+      <tr>
+        <td>#001</td>
+        <td>Mobile Top-Up – Ghana</td>
+        <td><a href="proof-001.html">View Proof</a></td>
+      </tr>
+      <tr>
+        <td>#002</td>
+        <td>Food Delivery – Syria</td>
+        <td><a href="proof-002.html">View Proof</a></td>
+      </tr>
+      <tr>
+        <td>#003</td>
+        <td>School Textbooks – Kenya</td>
+        <td><a href="proof-003.html">View Proof</a></td>
+      </tr>
+    </table>
+  </div>
+
 </body>
 </html>
