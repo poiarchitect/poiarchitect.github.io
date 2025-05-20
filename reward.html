@@ -3,67 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$GROW Rewards</title>
-  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+  <title>$GROW Reward Info</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 80px;
-      background-color: #f2f2f2;
+      margin: 40px;
+      background-color: #f9f9f9;
     }
     h1 {
-      color: #111;
+      color: #333;
     }
-    p {
-      font-size: 18px;
+    #rewardInfo {
+      font-size: 1.2em;
+      margin-top: 20px;
     }
     button {
-      padding: 10px 20px;
-      font-size: 16px;
       margin-top: 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
+      padding: 10px 20px;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <h1>$GROW Token Balance</h1>
-  <p>Connect your wallet to see your current GROW balance.</p>
+  <h1>$GROW Staking Reward</h1>
+  <p>This page displays a simulated $GROW reward earned from staking.</p>
+  <div id="rewardInfo">Connect your wallet to view your reward.</div>
   <button onclick="connectWallet()">Connect Wallet</button>
-  <p id="balance"></p>
 
   <script>
-    const growTokenAddress = "0x975D8d9D9c62416662d9c01A197522102aADDf20"; // Your Sepolia testnet contract
-    const growTokenABI = [
-      "function balanceOf(address) view returns (uint256)",
-      "function decimals() view returns (uint8)"
-    ];
+    const rewardAmount = 250; // Simulated fixed reward
 
     async function connectWallet() {
-      try {
-        if (!window.ethereum) throw new Error("MetaMask not found");
-
-        await ethereum.request({ method: 'eth_requestAccounts' });
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const userAddress = await signer.getAddress();
-
-        const growToken = new ethers.Contract(growTokenAddress, growTokenABI, provider);
-        const rawBalance = await growToken.balanceOf(userAddress);
-        const decimals = await growToken.decimals();
-        const formattedBalance = ethers.utils.formatUnits(rawBalance, decimals);
-
-        document.getElementById("balance").innerText = `Your $GROW balance: ${formattedBalance}`;
-      } catch (err) {
-        console.error(err);
-        alert("Error connecting to wallet.");
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById('rewardInfo').innerText =
+            `Connected: ${account}\nSimulated $GROW Reward: ${rewardAmount}`;
+        } catch (err) {
+          document.getElementById('rewardInfo').innerText = 'Wallet connection failed.';
+        }
+      } else {
+        document.getElementById('rewardInfo').innerText = 'MetaMask is not installed.';
       }
     }
   </script>
