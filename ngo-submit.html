@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit NGO Bounty Request</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f7fa;
+      text-align: center;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    input, textarea {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #confirmation {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>NGO Bounty Submission</h2>
+  <p>Submit a bounty request for funding</p>
+
+  <input type="text" id="ngoName" placeholder="NGO Name" required /><br/>
+  <textarea id="bountyDesc" placeholder="Bounty Description" rows="4" required></textarea><br/>
+  <input type="number" id="ethAmount" placeholder="Requested ETH (e.g. 0.01)" step="0.001" min="0" required /><br/>
+  <button onclick="submitBounty()">Submit Request</button>
+
+  <div id="confirmation"></div>
+
+  <script>
+    function submitBounty() {
+      const name = document.getElementById('ngoName').value;
+      const desc = document.getElementById('bountyDesc').value;
+      const amount = document.getElementById('ethAmount').value;
+
+      if (!name || !desc || !amount) {
+        alert('Please complete all fields.');
+        return;
+      }
+
+      // Save to localStorage (could later connect to on-chain or DB)
+      const bounty = {
+        ngo: name,
+        description: desc,
+        amount: parseFloat(amount)
+      };
+      localStorage.setItem('latestBountyRequest', JSON.stringify(bounty));
+
+      document.getElementById('confirmation').textContent =
+        `Bounty submitted! NGO "${name}" requested ${amount} ETH.`;
+    }
+  </script>
+</body>
+</html>
