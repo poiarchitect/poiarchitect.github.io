@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simulate Bounty Funding</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 30px;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    .bounty {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #status {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <h2>PoIP Bounty Simulation</h2>
+
+  <div class="bounty">
+    <h3>Bounty #004 – Water Access Kit</h3>
+    <p>Provide 10 water purification kits to rural families in Ghana.</p>
+    <p><strong>Required Funds:</strong> 0.01 ETH</p>
+    <p><strong>Treasury Balance:</strong> <span id="balance">Loading...</span></p>
+    <button onclick="simulateFunding()">Simulate Fund Transfer</button>
+    <div id="status"></div>
+  </div>
+
+  <a href="index.html">← Back to Homepage</a>
+
+  <script>
+    const provider = new ethers.providers.JsonRpcProvider("https://sepolia.infura.io/v3/b22252026c5f4c45a79b1588b3398936");
+    const treasuryAddress = "0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA";
+
+    async function loadBalance() {
+      try {
+        const balance = await provider.getBalance(treasuryAddress);
+        const eth = ethers.utils.formatEther(balance);
+        document.getElementById("balance").textContent = `${eth} ETH`;
+      } catch (err) {
+        document.getElementById("balance").textContent = "Error fetching balance";
+      }
+    }
+
+    function simulateFunding() {
+      document.getElementById("status").textContent = "Bounty funded successfully (simulated)";
+    }
+
+    loadBalance();
+  </script>
+</body>
+</html>
