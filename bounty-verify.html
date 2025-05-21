@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify & Fund Bounty</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Verify & Fund Bounty Request</h2>
+    <p><strong>NGO:</strong> Water Relief Network</p>
+    <p><strong>Description:</strong> Install clean water filters in 5 remote villages in Kenya.</p>
+    <p><strong>Requested:</strong> 0.02 ETH</p>
+    <p><strong>Treasury Balance:</strong> 0.0489 ETH</p>
+
+    <button class="btn" onclick="verify()">Verify & Fund Bounty</button>
+
+    <p id="confirmation" class="success" style="display:none;">
+      Bounty verified and funded successfully (simulated)!
+    </p>
+
+    <a href="index.html">&larr; Back to Homepage</a>
+  </div>
+
+  <script>
+    function verify() {
+      document.getElementById('confirmation').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
