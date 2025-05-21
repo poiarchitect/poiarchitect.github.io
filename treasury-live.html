@@ -2,49 +2,64 @@
 <html>
 <head>
   <title>PoIP Live Treasury Monitor</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      font-family: 'Arial', sans-serif;
       text-align: center;
       background-color: #f5f7fa;
+      padding: 30px;
     }
-    h2 {
+    h1 {
       color: #2c3e50;
+      font-size: 24px;
     }
-    #wallet {
+    .wallet {
       font-family: monospace;
-      margin-top: 10px;
+      color: #444;
+      margin: 10px 0;
     }
-    #balance {
-      margin-top: 20px;
-      font-size: 18px;
+    .balance {
+      font-size: 20px;
       color: green;
+      margin-top: 20px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      color: #007bff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h2>PoIP Live Treasury Monitor</h2>
-  <p>Treasury Wallet:</p>
-  <div id="wallet">0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA</div>
-  <div id="balance">Loading balance...</div>
-  <br />
+  <h1>PoIP Live Treasury Monitor</h1>
+  <div class="wallet">
+    Treasury Wallet:<br>
+    0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA
+  </div>
+  <div id="balance" class="balance">Fetching balance...</div>
   <a href="index.html">← Back to Homepage</a>
 
   <script>
-    const provider = new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org");
     const walletAddress = "0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA";
+    const provider = new ethers.providers.JsonRpcProvider("https://sepolia.infura.io/v3/b22252026c5f4c45a79b1588b3398936");
 
     async function fetchBalance() {
       try {
         const balance = await provider.getBalance(walletAddress);
         const eth = ethers.utils.formatEther(balance);
-        document.getElementById("balance").textContent = `Balance: ${eth} SepoliaETH`;
-      } catch (error) {
+        document.getElementById("balance").textContent = `Balance: ${eth} ETH`;
+      } catch (err) {
         document.getElementById("balance").textContent = "Error fetching balance.";
+        document.getElementById("balance").classList.add("error");
+        console.error(err);
       }
     }
 
