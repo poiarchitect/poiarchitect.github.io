@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Live PoIP Treasury Balance</title>
+  <title>PoIP Live Treasury Monitor</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f4f6f8;
       text-align: center;
+      background-color: #f4f4f4;
+      padding: 30px;
     }
     h2 {
       color: #2c3e50;
     }
     #balance {
+      margin-top: 20px;
       font-size: 20px;
-      margin-top: 15px;
       color: green;
     }
-    .wallet {
+    .address {
       font-family: monospace;
       font-size: 14px;
       color: #555;
-      margin-bottom: 10px;
-    }
-    .yield {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #333;
     }
     a {
-      display: inline-block;
+      display: block;
       margin-top: 30px;
       text-decoration: none;
       color: #007bff;
@@ -41,37 +35,30 @@
 </head>
 <body>
   <h2>PoIP Live Treasury Monitor</h2>
-  <div class="wallet">Treasury Wallet: <br> <span id="wallet">0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA</span></div>
-  <div id="balance">Fetching ETH balance...</div>
-  <div class="yield" id="yield-estimate"></div>
+  <div class="address">
+    Treasury Wallet:<br />
+    0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA
+  </div>
+  <div id="balance">Loading balance...</div>
+
   <a href="index.html">&larr; Back to Homepage</a>
 
   <script>
-    const treasuryAddress = "0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA";
-    const etherscanApiKey = ""; // Optional if using public provider
-    const provider = new ethers.providers.JsonRpcProvider("https://sepolia.infura.io/v3/"); // Or use Alchemy
+    const provider = new ethers.providers.JsonRpcProvider("https://endpoints.metamask.io/v1/sepolia/b22252026c5f4c45a79b1588b3398936");
+    const address = "0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA";
 
-    async function updateBalance() {
+    async function loadBalance() {
       try {
-        const balance = await provider.getBalance(treasuryAddress);
+        const balance = await provider.getBalance(address);
         const ethBalance = ethers.utils.formatEther(balance);
-        document.getElementById("balance").textContent = `ETH Balance: ${ethBalance} ETH`;
-
-        // Simulated yield and bounty breakdown
-        const annualYield = 0.05; // 5% simulated
-        const bountyCost = 0.01; // 0.01 ETH per bounty
-        const yieldAmount = parseFloat(ethBalance) * annualYield;
-        const bountiesFundable = Math.floor(yieldAmount / bountyCost);
-
-        document.getElementById("yield-estimate").innerHTML =
-          `Estimated Annual Yield: ${yieldAmount.toFixed(4)} ETH<br>` +
-          `Bounties Fundable: ${bountiesFundable}`;
-      } catch (err) {
-        document.getElementById("balance").textContent = "Error fetching balance.";
+        document.getElementById("balance").innerText = `Current Balance: ${ethBalance} ETH`;
+      } catch (error) {
+        document.getElementById("balance").innerText = "Error fetching balance.";
+        console.error(error);
       }
     }
 
-    updateBalance();
+    loadBalance();
   </script>
 </body>
 </html>
