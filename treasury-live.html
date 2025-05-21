@@ -8,57 +8,47 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      padding: 20px;
       text-align: center;
-      background-color: #f4f4f4;
-      padding: 30px;
+      background-color: #f5f7fa;
     }
     h2 {
       color: #2c3e50;
     }
+    #wallet {
+      font-family: monospace;
+      margin-top: 10px;
+    }
     #balance {
       margin-top: 20px;
-      font-size: 20px;
+      font-size: 18px;
       color: green;
-    }
-    .address {
-      font-family: monospace;
-      font-size: 14px;
-      color: #555;
-    }
-    a {
-      display: block;
-      margin-top: 30px;
-      text-decoration: none;
-      color: #007bff;
     }
   </style>
 </head>
 <body>
   <h2>PoIP Live Treasury Monitor</h2>
-  <div class="address">
-    Treasury Wallet:<br />
-    0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA
-  </div>
+  <p>Treasury Wallet:</p>
+  <div id="wallet">0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA</div>
   <div id="balance">Loading balance...</div>
-
-  <a href="index.html">&larr; Back to Homepage</a>
+  <br />
+  <a href="index.html">← Back to Homepage</a>
 
   <script>
-    const provider = new ethers.providers.JsonRpcProvider("https://endpoints.metamask.io/v1/sepolia/b22252026c5f4c45a79b1588b3398936");
-    const address = "0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA";
+    const provider = new ethers.providers.JsonRpcProvider("https://rpc.sepolia.org");
+    const walletAddress = "0xF95B6ac5d0493452dDAd59F8f069a140401FC1DA";
 
-    async function loadBalance() {
+    async function fetchBalance() {
       try {
-        const balance = await provider.getBalance(address);
-        const ethBalance = ethers.utils.formatEther(balance);
-        document.getElementById("balance").innerText = `Current Balance: ${ethBalance} ETH`;
+        const balance = await provider.getBalance(walletAddress);
+        const eth = ethers.utils.formatEther(balance);
+        document.getElementById("balance").textContent = `Balance: ${eth} SepoliaETH`;
       } catch (error) {
-        document.getElementById("balance").innerText = "Error fetching balance.";
-        console.error(error);
+        document.getElementById("balance").textContent = "Error fetching balance.";
       }
     }
 
-    loadBalance();
+    fetchBalance();
   </script>
 </body>
 </html>
