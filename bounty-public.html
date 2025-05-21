@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Public Bounty Display</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      padding: 30px;
+      text-align: center;
+    }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    .bounty {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .bounty strong {
+      display: inline-block;
+      width: 130px;
+    }
+    .status {
+      font-weight: bold;
+      color: green;
+    }
+    .proof-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .proof-link:hover {
+      text-decoration: underline;
+    }
+    a.home {
+      display: block;
+      margin-top: 40px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Funded Bounties (Simulated)</h2>
+
+  <div class="bounty">
+    <p><strong>NGO:</strong> Water Relief Network</p>
+    <p><strong>Description:</strong> Install clean water filters in 5 remote villages in Kenya.</p>
+    <p><strong>Funded:</strong> 0.02 ETH</p>
+    <p><strong>Status:</strong> <span class="status">Funded</span></p>
+    <a href="proof-001.html" class="proof-link">View Proof</a>
+  </div>
+
+  <div class="bounty">
+    <p><strong>NGO:</strong> Solar Aid Alliance</p>
+    <p><strong>Description:</strong> Deliver solar lanterns to rural schoolchildren in Tanzania.</p>
+    <p><strong>Funded:</strong> 0.015 ETH</p>
+    <p><strong>Status:</strong> <span class="status">Awaiting Proof</span></p>
+    <a href="#" class="proof-link">View Proof</a>
+  </div>
+
+  <a href="index.html" class="home">&larr; Back to Homepage</a>
+</body>
+</html>
