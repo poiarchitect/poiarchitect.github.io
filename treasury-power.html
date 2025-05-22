@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoIP Treasury Growth Simulator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9ff;
+      padding: 20px;
+      text-align: center;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 12px 24px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .results {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .results p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>PoIP Treasury Growth Simulator</h2>
+    <p>Estimate treasury growth and impact funding over 5 years.</p>
+    
+    <input type="number" id="treasury" placeholder="Starting Treasury (£)" />
+    <input type="number" id="yield" placeholder="Yield Rate (%)" />
+    <input type="number" id="staking" placeholder="User Staking Contribution (£/year)" />
+    <input type="number" id="donations" placeholder="Grants/Donations (£/year)" />
+
+    <button onclick="simulate()">Run Simulation</button>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <script>
+    function simulate() {
+      const base = parseFloat(document.getElementById("treasury").value);
+      const rate = parseFloat(document.getElementById("yield").value) / 100;
+      const stake = parseFloat(document.getElementById("staking").value);
+      const grant = parseFloat(document.getElementById("donations").value);
+
+      let treasury = base;
+      let results = `<h3>5-Year Forecast:</h3>`;
+      
+      for (let year = 1; year <= 5; year++) {
+        const growth = (treasury + stake + grant) * rate;
+        const aid = growth * 0.5;
+        const reinvest = growth * 0.5;
+        treasury += reinvest + stake + grant;
+
+        results += `<p><strong>Year ${year}:</strong> Treasury = £${treasury.toFixed(2)}, Yield = £${growth.toFixed(2)}, Impact Funded = £${aid.toFixed(2)}</p>`;
+      }
+
+      document.getElementById("results").innerHTML = results;
+    }
+  </script>
+</body>
+</html>
