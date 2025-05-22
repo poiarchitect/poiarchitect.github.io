@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoIP AI Logic Simulation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9ff;
+      padding: 40px;
+      color: #2c3e50;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1a73e8;
+    }
+    .logic-box {
+      background: #eef5ff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      margin-top: 30px;
+    }
+    .logic-box h3 {
+      margin-bottom: 10px;
+      color: #1a73e8;
+    }
+    .impact-feed {
+      margin-top: 30px;
+      text-align: left;
+    }
+    .impact-feed h3 {
+      color: #1a73e8;
+    }
+    .impact-item {
+      background: #ffffff;
+      padding: 15px;
+      border-left: 4px solid #1a73e8;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Logic Simulation</h1>
+    <p>This page simulates how PoIP’s AI engine interprets bounty data and automates treasury decisions.</p>
+
+    <div class="logic-box">
+      <h3>Example Logic (Simplified)</h3>
+      <ul>
+        <li>Scan verified NGO data feed every 24h</li>
+        <li>Check for active impact requests with required proof type</li>
+        <li>If request = verified and treasury yield ≥ bounty cost → flag for payout</li>
+        <li>Notify DAO or execute smart contract via oracle (on-chain)</li>
+      </ul>
+    </div>
+
+    <div class="impact-feed">
+      <h3>Live Feed: AI-Detected Bounty Requests</h3>
+
+      <div class="impact-item">
+        <strong>NGO: HealthAid Kenya</strong><br>
+        Request: 1,000 mosquito nets<br>
+        Proof: Blockchain-verified delivery receipt<br>
+        Est. Cost: £600<br>
+        Status: <em>Ready for treasury allocation</em>
+      </div>
+
+      <div class="impact-item">
+        <strong>NGO: GirlsCode Ghana</strong><br>
+        Request: 5 laptops for coding bootcamp<br>
+        Proof: Ethereum wallet receipt with invoice hash<br>
+        Est. Cost: £1,200<br>
+        Status: <em>Awaiting yield threshold</em>
+      </div>
+
+      <div class="impact-item">
+        <strong>NGO: WaterCycle India</strong><br>
+        Request: 3 smart water pumps<br>
+        Proof: On-chain sensor sync confirmation<br>
+        Est. Cost: £980<br>
+        Status: <em>In review</em>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
