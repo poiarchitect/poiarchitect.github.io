@@ -1,121 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stake $POI</title>
+  <title>PoIP Staking Demo</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f4ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      max-width: 400px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      background: #f5f9ff;
+      color: #2c3e50;
+      padding: 40px;
       text-align: center;
     }
-    button {
-      background-color: #007bff;
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #1a73e8;
+    }
+    .input {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      font-size: 16px;
+    }
+    .button {
+      padding: 12px 24px;
+      margin: 10px;
+      background: #1a73e8;
       color: white;
       border: none;
-      padding: 12px 20px;
-      margin: 10px 0;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
-      width: 100%;
     }
-    button:hover {
-      background-color: #0056b3;
-    }
-    input {
+    .disclaimer {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
       padding: 10px;
-      width: 90%;
-      margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      background: #fefefe;
+    }
+    .tag {
+      font-size: 13px;
+      margin-top: 40px;
+      color: #aaa;
+    }
+    .address-box {
+      font-size: 14px;
+      color: #555;
+      background: #eef2fa;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      word-break: break-all;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Stake $POI</h2>
-    <input type="number" id="amount" placeholder="Enter amount to stake" />
-    <button onclick="connectWallet()">Connect Wallet</button>
-    <button onclick="approvePOI()">Approve POI</button>
-    <button onclick="stakePOI()">Stake</button>
-    <button onclick="unstakePOI()">Unstake</button>
-    <p id="status"></p>
+    <h1>Stake Your $POI</h1>
+    <div class="disclaimer">
+      This demo shows how staking will work in the Proof of Impact Protocol.<br />
+      No real yield or $GROW tokens are being distributed yet.<br />
+      Your stake is symbolic and can be unstaked at any time.
+    </div>
+
+    <input id="amount" class="input" placeholder="Enter amount of $POI to stake" />
+    <br />
+    <button class="button" onclick="approve()">Approve</button>
+    <button class="button" onclick="stake()">Stake</button>
+    <button class="button" onclick="unstake()">Unstake</button>
+
+    <div class="section">
+      <h2>DAO Contract</h2>
+      <div class="address-box">0x432431ef1cAAFeFDF80A27FB1a399A35A858cEC6</div>
+
+      <h2>Treasury Vault</h2>
+      <div class="address-box">0x30f693555e4a1eb8e76322079b11E12ee439bcC1</div>
+    </div>
+
+    <div class="tag">
+      Pre-Funding Demo v1.0 — June 2025
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <script>
+    const web3 = new Web3(window.ethereum);
     const poiTokenAddress = "0xba0E9625B37C2F52678D096Ad2c33B940FF6C921";
     const stakingContractAddress = "0x603608E09b9F4AAFd50500003A59E1F9c98E4653";
 
-    const poiABI = [
-      "function approve(address spender, uint256 amount) public returns (bool)"
+    const poiTokenABI = [
+      {
+        "constant": false,
+        "inputs": [
+          { "name": "spender", "type": "address" },
+          { "name": "amount", "type": "uint256" }
+        ],
+        "name": "approve",
+        "outputs": [{ "name": "", "type": "bool" }],
+        "type": "function"
+      }
     ];
 
     const stakingABI = [
-      "function stake(uint256 amount) public",
-      "function unstake() public"
+      {
+        "inputs": [{ "internalType": "address", "name": "_token", "type": "address" }],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+        "name": "stake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "unstake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
     ];
 
-    let provider, signer, poiToken, stakingContract;
+    const poiToken = new web3.eth.Contract(poiTokenABI, poiTokenAddress);
+    const staking = new web3.eth.Contract(stakingABI, stakingContractAddress);
 
-    async function connectWallet() {
-      if (window.ethereum) {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        provider = new ethers.providers.Web3Provider(window.ethereum);
-        signer = provider.getSigner();
-        poiToken = new ethers.Contract(poiTokenAddress, poiABI, signer);
-        stakingContract = new ethers.Contract(stakingContractAddress, stakingABI, signer);
-        document.getElementById("status").innerText = "Wallet connected.";
-      } else {
-        alert("MetaMask not detected.");
-      }
+    async function approve() {
+      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      const amount = document.getElementById("amount").value;
+      await poiToken.methods.approve(stakingContractAddress, web3.utils.toWei(amount)).send({ from: accounts[0] });
     }
 
-    async function approvePOI() {
-      try {
-        const amount = document.getElementById("amount").value;
-        const tx = await poiToken.approve(stakingContractAddress, ethers.utils.parseUnits(amount, 18));
-        await tx.wait();
-        document.getElementById("status").innerText = "Approval successful.";
-      } catch (err) {
-        console.error(err);
-        document.getElementById("status").innerText = "Approval failed.";
-      }
+    async function stake() {
+      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      const amount = document.getElementById("amount").value;
+      await staking.methods.stake(web3.utils.toWei(amount)).send({ from: accounts[0] });
     }
 
-    async function stakePOI() {
-      try {
-        const amount = document.getElementById("amount").value;
-        const tx = await stakingContract.stake(ethers.utils.parseUnits(amount, 18));
-        await tx.wait();
-        document.getElementById("status").innerText = "Stake successful.";
-      } catch (err) {
-        console.error(err);
-        document.getElementById("status").innerText = "Stake failed.";
-      }
-    }
-
-    async function unstakePOI() {
-      try {
-        const tx = await stakingContract.unstake();
-        await tx.wait();
-        document.getElementById("status").innerText = "Unstake successful.";
-      } catch (err) {
-        console.error(err);
-        document.getElementById("status").innerText = "Unstake failed.";
-      }
+    async function unstake() {
+      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      await staking.methods.unstake().send({ from: accounts[0] });
     }
   </script>
 </body>
