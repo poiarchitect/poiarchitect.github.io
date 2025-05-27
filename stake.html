@@ -2,174 +2,119 @@
 <html>
 <head>
   <title>Stake $POI</title>
-  <script src="https://cdn.jsdelivr.net/npm/web3@1.7.5/dist/web3.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #eef4ff;
+      background: #f0f4ff;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
-
     .container {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
       padding: 30px;
       max-width: 400px;
-      width: 90%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-
-    h2 {
-      color: #0f5cc9;
-    }
-
-    input, button {
-      margin: 10px 0;
-      padding: 12px;
-      font-size: 16px;
-      width: 100%;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
     button {
-      background-color: #0f5cc9;
+      background-color: #007bff;
       color: white;
       border: none;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border-radius: 5px;
       cursor: pointer;
+      width: 100%;
     }
-
     button:hover {
-      background-color: #0d4fb3;
+      background-color: #0056b3;
     }
-
-    #output {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #333;
+    input {
+      padding: 10px;
+      width: 90%;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Stake $POI</h2>
-    <p>Support the Proof of Impact Protocol by staking your $POI tokens.</p>
+    <input type="number" id="amount" placeholder="Enter amount to stake" />
     <button onclick="connectWallet()">Connect Wallet</button>
-    <input type="text" id="stakeAmount" placeholder="Amount of $POI to stake">
-    <button onclick="approve()">Approve</button>
-    <button onclick="stake()">Stake</button>
-    <button onclick="unstake()">Unstake</button>
-    <button onclick="checkStake()">Check My Stake</button>
-    <p id="output"></p>
+    <button onclick="approvePOI()">Approve POI</button>
+    <button onclick="stakePOI()">Stake</button>
+    <button onclick="unstakePOI()">Unstake</button>
+    <p id="status"></p>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <script>
-    const STAKING_CONTRACT_ADDRESS = "0x603608E09b9F4AAFd50500003A59E1F9c98E4653";
-    const POI_TOKEN_ADDRESS = "0xba0E9625B37C2F52678D096Ad2c33B940FF6C921";
+    const poiTokenAddress = "0xba0E9625B37C2F52678D096Ad2c33B940FF6C921";
+    const stakingContractAddress = "0x603608E09b9F4AAFd50500003A59E1F9c98E4653";
 
-    const STAKING_ABI = [
-      {
-        "inputs": [{"internalType": "uint256", "name": "amount", "type": "uint256"}],
-        "name": "stake",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "unstake",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [{"internalType": "address", "name": "user", "type": "address"}],
-        "name": "getStake",
-        "outputs": [
-          { "internalType": "uint256", "name": "", "type": "uint256" },
-          { "internalType": "uint256", "name": "", "type": "uint256" }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      }
+    const poiABI = [
+      "function approve(address spender, uint256 amount) public returns (bool)"
     ];
 
-    const ERC20_ABI = [
-      {
-        "constant": false,
-        "inputs": [
-          { "name": "spender", "type": "address" },
-          { "name": "value", "type": "uint256" }
-        ],
-        "name": "approve",
-        "outputs": [{ "name": "", "type": "bool" }],
-        "type": "function"
-      }
+    const stakingABI = [
+      "function stake(uint256 amount) public",
+      "function unstake() public"
     ];
 
-    let web3;
-    let account;
-    let stakingContract;
-    let poiToken;
+    let provider, signer, poiToken, stakingContract;
 
     async function connectWallet() {
       if (window.ethereum) {
-        web3 = new Web3(window.ethereum);
         await window.ethereum.request({ method: "eth_requestAccounts" });
-        const accounts = await web3.eth.getAccounts();
-        account = accounts[0];
-        stakingContract = new web3.eth.Contract(STAKING_ABI, STAKING_CONTRACT_ADDRESS);
-        poiToken = new web3.eth.Contract(ERC20_ABI, POI_TOKEN_ADDRESS);
-        document.getElementById("output").innerText = "Connected: " + account;
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        signer = provider.getSigner();
+        poiToken = new ethers.Contract(poiTokenAddress, poiABI, signer);
+        stakingContract = new ethers.Contract(stakingContractAddress, stakingABI, signer);
+        document.getElementById("status").innerText = "Wallet connected.";
       } else {
-        alert("MetaMask not detected");
+        alert("MetaMask not detected.");
       }
     }
 
-    async function approve() {
-      const amount = document.getElementById("stakeAmount").value;
-      const amountInWei = web3.utils.toWei(amount, "ether");
+    async function approvePOI() {
       try {
-        await poiToken.methods.approve(STAKING_CONTRACT_ADDRESS, amountInWei).send({ from: account });
-        document.getElementById("output").innerText = "Approved " + amount + " POI";
+        const amount = document.getElementById("amount").value;
+        const tx = await poiToken.approve(stakingContractAddress, ethers.utils.parseUnits(amount, 18));
+        await tx.wait();
+        document.getElementById("status").innerText = "Approval successful.";
       } catch (err) {
-        document.getElementById("output").innerText = "Approval failed: " + err.message;
+        console.error(err);
+        document.getElementById("status").innerText = "Approval failed.";
       }
     }
 
-    async function stake() {
-      const amount = document.getElementById("stakeAmount").value;
-      const amountInWei = web3.utils.toWei(amount, "ether");
+    async function stakePOI() {
       try {
-        await stakingContract.methods.stake(amountInWei).send({ from: account });
-        document.getElementById("output").innerText = "Staked " + amount + " POI";
+        const amount = document.getElementById("amount").value;
+        const tx = await stakingContract.stake(ethers.utils.parseUnits(amount, 18));
+        await tx.wait();
+        document.getElementById("status").innerText = "Stake successful.";
       } catch (err) {
-        document.getElementById("output").innerText = "Staking failed: " + err.message;
+        console.error(err);
+        document.getElementById("status").innerText = "Stake failed.";
       }
     }
 
-    async function unstake() {
+    async function unstakePOI() {
       try {
-        await stakingContract.methods.unstake().send({ from: account });
-        document.getElementById("output").innerText = "Unstaked successfully";
+        const tx = await stakingContract.unstake();
+        await tx.wait();
+        document.getElementById("status").innerText = "Unstake successful.";
       } catch (err) {
-        document.getElementById("output").innerText = "Unstake failed: " + err.message;
-      }
-    }
-
-    async function checkStake() {
-      try {
-        const result = await stakingContract.methods.getStake(account).call();
-        const amount = web3.utils.fromWei(result[0], "ether");
-        const startTime = result[1];
-        document.getElementById("output").innerText = `Staked: ${amount} POI\nSince: ${new Date(startTime * 1000).toLocaleString()}`;
-      } catch (err) {
-        document.getElementById("output").innerText = "Error fetching stake: " + err.message;
+        console.error(err);
+        document.getElementById("status").innerText = "Unstake failed.";
       }
     }
   </script>
