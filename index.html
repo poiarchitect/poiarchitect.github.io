@@ -1,61 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proof of Impact Protocol (PoIP)</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f7fa;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
       color: #2c3e50;
-      font-size: 32px;
     }
-    p {
-      color: #444;
-      font-size: 16px;
-      margin-bottom: 40px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    header {
+      background-color: #1a1a2e;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
     }
-    .button {
-      display: block;
-      width: 280px;
-      margin: 10px auto;
-      padding: 12px;
-      background-color: #007bff;
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+    }
+    header p {
+      margin-top: 12px;
+      font-size: 1.3em;
+    }
+    .container {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .section h2 {
+      margin-top: 0;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+    .stat {
+      flex: 1 1 200px;
+      margin: 15px;
+      text-align: center;
+    }
+    .stat h3 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #1a1a2e;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 35px;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 30px;
+      background-color: #1a1a2e;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
-      font-size: 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
-    .footer {
-      margin-top: 60px;
-      font-size: 14px;
+    .buttons a:hover {
+      background-color: #16213e;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      padding: 30px 20px;
       color: #888;
     }
   </style>
 </head>
 <body>
 
+<header>
   <h1>Proof of Impact Protocol</h1>
-  <p>
-    A decentralised system that connects pooled staking, treasury yield, and automated impact funding — empowering real-world solutions through transparent rewards and on-chain verification.
-  </p>
+  <p>Stake. Fund Real Impact. Earn Symbolic Rewards.</p>
+</header>
 
-  <a href="whitepaper.html" class="button">View Whitepaper</a>
-  <a href="stake.html" class="button">Stake Simulation</a>
-  <a href="yield.html" class="button">Treasury Yield Tool</a>
-  <a href="grow.html" class="button">Reward ($GROW) Page</a>
+<div class="container">
 
-  <div class="footer">
-    Licensed under GNU GPL v3.0 — Open Source for Public Good
+  <div class="section">
+    <h2>What is PoIP?</h2>
+    <p>PoIP is a decentralized protocol that lets users stake $POI to grow a transparent treasury. Yield is used to fund real-world bounties — verified impact in aid, innovation, and climate recovery. Stakers receive $GROW as a symbolic reward for their support.</p>
   </div>
+
+  <div class="section">
+    <h2>Live Impact Metrics</h2>
+    <div class="stats">
+      <div class="stat">
+        <h3>◎</h3>
+        <p><strong>$XX,XXX</strong><br>Treasury Balance</p>
+      </div>
+      <div class="stat">
+        <h3>◎</h3>
+        <p><strong>XXX</strong><br>Total POI Staked</p>
+      </div>
+      <div class="stat">
+        <h3>◎</h3>
+        <p><strong>XX</strong><br>Bounties Verified</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Quick Access</h2>
+    <div class="buttons">
+      <a href="stake.html">Stake Now</a>
+      <a href="treasury-live.html">Live Treasury</a>
+      <a href="presentation.html">View Summary</a>
+      <a href="grow.html">$GROW Balance</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why PoIP Matters</h2>
+    <p>This is more than a protocol — it's a movement. Join a global system that verifies where funds go, how they’re used, and lets you contribute directly to real-world change through a transparent, smart-contract-controlled treasury.</p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Proof of Impact Protocol. Built for global good.
+</footer>
 
 </body>
 </html>
