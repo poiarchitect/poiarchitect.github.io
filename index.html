@@ -6,136 +6,139 @@
   <title>Proof of Impact Protocol (PoIP)</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f6fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f1f5f9;
       margin: 0;
       padding: 0;
-      color: #2c3e50;
+      color: #1f2937;
     }
     header {
-      background-color: #0d1b2a;
+      background-color: #0f172a;
       color: white;
-      padding: 40px 20px;
+      padding: 60px 20px 40px;
       text-align: center;
     }
     header h1 {
+      font-size: 2.5rem;
       margin: 0;
-      font-size: 36px;
     }
     header p {
+      font-size: 1.2rem;
       margin-top: 10px;
-      font-size: 18px;
-      color: #a8dadc;
+      color: #cbd5e1;
     }
     .section {
       padding: 40px 20px;
-      max-width: 1000px;
+      max-width: 800px;
       margin: auto;
     }
     .section h2 {
-      font-size: 28px;
-      color: #1d3557;
-    }
-    .section p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .dashboard {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #0f172a;
     }
     .card {
-      flex: 1 1 30%;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      padding: 30px;
-      text-align: center;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
-    .card h3 {
-      margin-bottom: 10px;
-      color: #1d3557;
+    .metrics {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .card p {
-      font-size: 24px;
+    .metrics div {
+      margin: 10px 0;
       font-weight: bold;
-      color: #457b9d;
+      font-size: 1.2rem;
     }
-    .buttons {
-      margin-top: 30px;
-      text-align: center;
+    .quick-access, .contract-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
     }
-    .button {
-      background-color: #1d3557;
+    .quick-access a, .contract-section a {
+      background-color: #0f172a;
       color: white;
-      padding: 12px 24px;
-      margin: 10px;
-      border: none;
-      border-radius: 5px;
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
       text-decoration: none;
-      font-size: 16px;
-      display: inline-block;
+      font-weight: bold;
+      font-size: 1rem;
     }
-    .footer {
+    footer {
       text-align: center;
       padding: 30px 20px;
-      background: #eee;
-      font-size: 14px;
-      color: #888;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+    @media (min-width: 600px) {
+      .metrics {
+        flex-direction: row;
+        justify-content: space-around;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Proof of Impact Protocol (PoIP)</h1>
-    <p>Turning staking yield into permanent, proof-based global change</p>
+    <h1>Proof of Impact Protocol</h1>
+    <p>Stake. Fund Real Impact. Earn Symbolic Rewards.</p>
   </header>
 
-  <div class="section">
-    <h2>Live Dashboard (Simulated)</h2>
-    <div class="dashboard">
-      <div class="card">
-        <h3>Treasury</h3>
-        <p>£xx,xxx,xxx</p>
-      </div>
-      <div class="card">
-        <h3>Staked $POI</h3>
-        <p>xx,xxx,xxx</p>
-      </div>
-      <div class="card">
-        <h3>$GROW Rewards</h3>
-        <p>xx,xxx</p>
-      </div>
+  <div class="section card">
+    <h2>What is PoIP?</h2>
+    <p>PoIP is a decentralized protocol that lets users stake $POI to grow a transparent treasury. Yield is used to fund real-world bounties — verified impact in aid, innovation, and climate recovery. Stakers receive $GROW as a symbolic reward for their support.</p>
+  </div>
+
+  <div class="section card">
+    <h2>Live Impact Metrics</h2>
+    <div class="metrics">
+      <div>$XX,XXX<br/>Treasury Balance</div>
+      <div>XXX<br/>Total POI Staked</div>
+      <div>XX<br/>Bounties Verified</div>
     </div>
   </div>
 
-  <div class="section">
-    <h2>Explore the Protocol</h2>
-    <div class="buttons">
-      <a class="button" href="presentation.html">📄 One-Pager</a>
-      <a class="button" href="stake.html">💠 Stake $POI</a>
-      <a class="button" href="treasury-live.html">📊 Treasury</a>
-      <a class="button" href="impact.html">✅ View Impact</a>
+  <div class="section card">
+    <h2>Quick Access</h2>
+    <div class="quick-access">
+      <a href="stake.html">Stake Now</a>
+      <a href="treasury-live.html">Live Treasury</a>
+      <a href="presentation.html">View Summary</a>
+      <a href="grow.html">$GROW Balance</a>
+      <a href="impact.html">View Impact Proof</a>
     </div>
   </div>
 
-  <div class="section">
-    <h2>How It Works</h2>
-    <p>PoIP uses low-risk DeFi strategies to generate yield from its treasury and staked assets. All funds go directly to proven bounties submitted by verified NGOs. $GROW tokens are awarded to stakers as symbolic proof of participation and can be used to vote on selected impact bounties.</p>
+  <div class="section card">
+    <h2>Live Contract Addresses</h2>
+    <div class="contract-section">
+      <a href="https://polygonscan.com/address/0x30f693555e4a1eb8e76322079b11E12ee439bcC1" target="_blank">View Treasury Vault</a>
+      <a href="https://polygonscan.com/address/0xba0E9625B37C2F52678D096Ad2c33B940FF6C921" target="_blank">View $POI Token</a>
+      <a href="https://polygonscan.com/address/0x975D8d9D9c62416662d9c01A197522102aADDf20" target="_blank">View $GROW Token</a>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>Protocol Philosophy</h2>
-    <p>PoIP is non-custodial, permissionless, and audit-friendly. It does not speculate, hold control mechanisms, or rely on human intermediaries to verify impact. Every transaction is documented, on-chain, and visible in real time.</p>
+  <div class="section card">
+    <h2>Why PoIP Matters</h2>
+    <p>This is more than a protocol — it's a movement. Join a global system that verifies where funds go, how they’re used, and lets you contribute directly to real-world change through a transparent, smart-contract-controlled treasury.</p>
   </div>
 
-  <div class="footer">
-    &copy; 2025 Proof of Impact Protocol. Licensed under GNU GPL v3.0. | Interface Version 2.8
+  <div class="section card">
+    <h2>The PoIP Foundation</h2>
+    <p>The Proof of Impact Foundation is a UK-registered nonprofit that supports the growth and adoption of the PoIP protocol. It plays a coordination role — helping onboard NGOs, securing grant support, and managing public infrastructure like the website and documentation.</p>
+    <p>Importantly, the Foundation holds no $POI or $GROW tokens, cannot access treasury funds, and does not control protocol execution. All on-chain logic is fully decentralized and governed by immutable smart contracts. As the protocol becomes fully autonomous, the Foundation will phase into an advisory role — supporting AI infrastructure and public transparency without interfering in decision-making.</p>
   </div>
+
+  <footer>
+    © 2025 Proof of Impact Protocol. Built for global good.
+  </footer>
 
 </body>
 </html>
