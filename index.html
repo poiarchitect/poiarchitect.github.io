@@ -6,44 +6,54 @@
   <title>Proof of Impact Protocol (PoIP)</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f2f4f8;
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
       margin: 0;
       padding: 0;
-      color: #2a2a2a;
+      color: #333;
     }
     header {
-      background: #0f1d40;
+      background-color: #1d3557;
       color: white;
-      padding: 40px 20px;
+      padding: 30px 20px;
       text-align: center;
     }
-    .hero-title {
+    header h1 {
+      margin: 0;
       font-size: 32px;
-      margin-bottom: 10px;
     }
-    .hero-subtitle {
+    header p {
       font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.5;
+      margin-top: 8px;
     }
     .section {
-      max-width: 960px;
+      padding: 50px 20px;
+      max-width: 900px;
       margin: auto;
-      padding: 60px 20px;
     }
-    .section h2 {
-      color: #0f1d40;
-      margin-bottom: 20px;
+    .highlight {
+      color: #457b9d;
+      font-weight: bold;
     }
-    .button-group {
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       margin-top: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex: 1 1 30%;
+      margin: 10px;
+      padding: 20px;
+      text-align: center;
     }
     .button {
       background-color: #457b9d;
       color: white;
-      padding: 14px 28px;
+      padding: 12px 20px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -52,97 +62,108 @@
       margin: 10px 10px 0 0;
       display: inline-block;
     }
-    .dashboard {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .card {
-      flex: 1 1 28%;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
-    .card h3 {
-      color: #1d3557;
-      margin-bottom: 10px;
-    }
-    .card p {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
     .footer {
       text-align: center;
-      padding: 40px 20px;
-      background: #eaeaea;
+      padding: 30px 20px;
+      background: #eee;
       font-size: 14px;
-      color: #666;
+      color: #888;
+    }
+    h1, h2, h3 {
+      color: #1d3557;
+    }
+    a {
+      color: #1d3557;
+      text-decoration: none;
+    }
+    .proof-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-top: 30px;
+    }
+    .proof-section h3 {
+      margin-top: 0;
+    }
+    .proof-meta p {
+      margin: 4px 0;
+      font-size: 15px;
+    }
+    .proof-divider {
+      margin: 20px 0;
+      border-top: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="hero-title">Proof of Impact Protocol (PoIP)</div>
-    <div class="hero-subtitle">
-      Rewiring capital for verifiable global transformation. No promises, just proof.
-    </div>
+    <h1>Proof of Impact Protocol (PoIP)</h1>
+    <p>Transforming capital into permanent, verifiable global change.</p>
   </header>
 
   <div class="section">
     <h2>What is PoIP?</h2>
-    <p>The Proof of Impact Protocol (PoIP) is a regenerative funding system that converts treasury yield into real-world humanitarian, environmental, and innovation outcomes. PoIP uses symbolic rewards, conservative DeFi strategies, and automated proof verification to bypass extractive systems and redirect capital where it matters most.</p>
+    <p><span class="highlight">PoIP</span> is a decentralized protocol that transforms passive yield into direct, on-chain funding for humanitarian, environmental, and innovation bounties—without middlemen, promises, or speculation.</p>
   </div>
 
   <div class="section">
-    <h2>Live Protocol Dashboard (Simulated)</h2>
+    <h2>Live Protocol Dashboard</h2>
     <div class="dashboard">
       <div class="card">
         <h3>Treasury Balance</h3>
-        <p>£XX,XXX,XXX</p>
+        <p>£xx,xxx,xxx</p>
       </div>
       <div class="card">
         <h3>Staked $POI</h3>
-        <p>XX,XXX,XXX</p>
+        <p>xx,xxx,xxx</p>
       </div>
       <div class="card">
         <h3>$GROW Distributed</h3>
-        <p>XX,XXX</p>
+        <p>xx,xxx</p>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>Foundation Role</h2>
-    <p>The Proof of Impact Foundation is a nonprofit support entity responsible for coordinating early infrastructure, AI model maintenance, NGO onboarding, and user education. It does not control funds, cannot execute contracts, and is designed to phase out once the system reaches treasury autonomy.</p>
-    <div class="button-group">
-      <a class="button" href="foundation.html">🌍 About the Foundation</a>
+    <h2>Quick Access</h2>
+    <a class="button" href="presentation.html">📄 One-Pager</a>
+    <a class="button" href="stake.html">💠 Stake $POI</a>
+    <a class="button" href="treasury-live.html">📊 Treasury Live</a>
+  </div>
+
+  <div class="section">
+    <h2>$GROW Utility</h2>
+    <p><span class="highlight">$GROW</span> is a non-transferable, symbolic reward token earned by staking. It reflects your commitment to verified impact. $GROW holders can participate in priority voting on select bounties in a separate community-driven section.</p>
+  </div>
+
+  <div class="section">
+    <h2>Proof of Impact (Sample)</h2>
+    <div class="proof-section">
+      <h3>✅ Verified Bounty: Clean Water Access – Ghana</h3>
+      <div class="proof-meta">
+        <p><strong>Status:</strong> Fully Verified</p>
+        <p><strong>Completed:</strong> April 2025</p>
+        <p><strong>Funded:</strong> £10,000</p>
+        <p><strong>NGO:</strong> BlueSpring International</p>
+      </div>
+      <div class="proof-divider"></div>
+      <p><strong>Summary:</strong> Solar-powered borehole built in Northern Ghana, serving 1,500+ villagers. Satellite and sensor data confirm success. NGO submitted full documentation, verified via AI and oracles.</p>
+      <p><strong>Proof:</strong> Final Report PDF, Satellite Image, IoT Logs, Field Video</p>
+      <p><strong>AI Verification Risk:</strong> Low (2.1%)</p>
+      <p><strong>Community Feedback:</strong> 2,415 $GROW votes supporting future re-funding</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>Get Involved</h2>
-    <div class="button-group">
-      <a class="button" href="presentation.html">📄 View One-Pager</a>
-      <a class="button" href="stake.html">💠 Stake $POI</a>
-      <a class="button" href="treasury-live.html">📊 View Treasury</a>
-      <a class="button" href="proof-003.html">✅ See Verified Impact</a>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>About $GROW</h2>
-    <p>$GROW is a symbolic, non-transferable reward token granted to participants who stake $POI to grow the treasury. It carries no financial value, but may be used to vote on select bounty decisions on a dedicated impact participation page.</p>
+    <h2>Protocol Structure</h2>
+    <p>The PoIP protocol is governed by immutable smart contracts. All funds are held in a treasury vault with zero human custody. The Foundation supports early growth, but holds no power. Oracles, AI, and yield logic maintain the system’s integrity.</p>
   </div>
 
   <div class="footer">
     &copy; 2025 Proof of Impact Protocol. All rights reserved. <br/>
-    Licensed under GNU GPL v3.0 | Version 2.8
+    Licensed under GNU GPL v3.0 — Version 2.8
   </div>
 
 </body>
