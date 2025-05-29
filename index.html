@@ -5,180 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Proof of Impact Protocol (PoIP)</title>
   <style>
-    :root {
-      --primary: #1d3557;
-      --accent: #457b9d;
-      --light: #f8f9fb;
-      --text: #333;
-      --card: #ffffff;
-    }
-
     body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--light);
-      color: var(--text);
+      padding: 0;
+      color: #333;
     }
-
     header {
-      background: var(--primary);
+      background-color: #1d3557;
       color: white;
-      padding: 60px 20px 40px;
+      padding: 20px;
       text-align: center;
     }
-
-    header h1 {
-      font-size: 36px;
-      margin: 0 0 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin: 0 auto;
-      max-width: 600px;
-    }
-
     .section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
-
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    .metrics {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .metric-item {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .metric-item span {
-      display: block;
+    .highlight {
+      color: #457b9d;
       font-weight: bold;
-      font-size: 18px;
-      margin-top: 6px;
     }
-
-    .button-group {
+    .dashboard {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: space-between;
       margin-top: 20px;
     }
-
-    .button-group a {
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
+    .card {
+      background: white;
       border-radius: 8px;
-      font-weight: 600;
-      width: 100%;
-      max-width: 300px;
-      text-align: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background: #f1f1f1;
-      padding: 30px 20px;
-      font-size: 14px;
+      flex: 1 1 28%;
+      margin: 10px;
+      padding: 20px;
       text-align: center;
-      color: #777;
     }
-
-    @media (min-width: 600px) {
-      .metrics {
-        flex-direction: row;
-        justify-content: space-around;
-      }
+    .button {
+      background-color: #457b9d;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 10px 5px;
+      display: inline-block;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #eee;
+      font-size: 14px;
+      color: #888;
+    }
+    h1, h2, h3 {
+      color: #1d3557;
+    }
+    a {
+      color: #1d3557;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Proof of Impact Protocol</h1>
-    <p>Stake. Fund Real Impact. Earn Symbolic Rewards.</p>
+    <h1>Proof of Impact Protocol (PoIP)</h1>
+    <p>Transforming capital into permanent, verifiable global change.</p>
   </header>
 
-  <div class="section card">
+  <div class="section">
     <h2>What is PoIP?</h2>
-    <p>PoIP is a decentralized protocol that lets users stake $POI to grow a transparent treasury. Yield is used to fund real-world bounties — verified impact in aid, innovation, and climate recovery. Stakers receive $GROW as a symbolic reward for their support.</p>
+    <p><span class="highlight">PoIP</span> is a decentralized protocol that turns staking yield into trustless funding for real-world impact. No intermediaries, no promises—only proof-based payouts, symbolic rewards, and a regenerative treasury that scales good.</p>
   </div>
 
-  <div class="section card">
-    <h2>Live Impact Metrics</h2>
-    <div class="metrics">
-      <div class="metric-item">
-        <div>🪙</div>
-        <span>$XX,XXX</span>
-        Treasury Balance
+  <div class="section">
+    <h2>Live Protocol Dashboard (Simulated)</h2>
+    <div class="dashboard">
+      <div class="card">
+        <h3>Treasury Balance</h3>
+        <p>£2,000,000</p>
       </div>
-      <div class="metric-item">
-        <div>🔒</div>
-        <span>XXX</span>
-        Total POI Staked
+      <div class="card">
+        <h3>Staked $POI</h3>
+        <p>18,250,000</p>
       </div>
-      <div class="metric-item">
-        <div>✅</div>
-        <span>XX</span>
-        Bounties Verified
+      <div class="card">
+        <h3>$GROW Tokens Issued</h3>
+        <p>6,150</p>
       </div>
     </div>
   </div>
 
-  <div class="section card">
-    <h2>Quick Access</h2>
-    <div class="button-group">
-      <a href="stake.html">Stake Now</a>
-      <a href="treasury-live.html">Live Treasury</a>
-      <a href="presentation.html">View Summary</a>
-      <a href="grow.html">$GROW Balance</a>
-      <a href="impact.html">View Impact Proof</a>
-    </div>
+  <div class="section">
+    <h2>Live Contract Links</h2>
+    <a class="button" href="https://polygonscan.com/address/0x30f693555e4a1eb8e76322079b11E12ee439bcC1" target="_blank">Treasury Contract</a>
+    <a class="button" href="https://polygonscan.com/address/0xba0E9625B37C2F52678D096Ad2c33B940FF6C921" target="_blank">$POI Token</a>
+    <a class="button" href="https://polygonscan.com/address/0x975D8d9D9c62416662d9c01A197522102aADDf20" target="_blank">$GROW Token</a>
+    <a class="button" href="https://polygonscan.com/address/0x603608E09b9F4AAFd50500003A59E1F9c98E4653" target="_blank">Staking Contract</a>
   </div>
 
-  <div class="section card">
-    <h2>Live Contract Addresses</h2>
-    <div class="button-group">
-      <a href="#">View Treasury Vault</a>
-      <a href="#">View $POI Token</a>
-      <a href="#">View $GROW Token</a>
-    </div>
+  <div class="section">
+    <h2>Explore the System</h2>
+    <a class="button" href="presentation.html">📄 PoIP One-Pager</a>
+    <a class="button" href="stake.html">💠 Stake $POI</a>
+    <a class="button" href="treasury-live.html">📊 Treasury View</a>
+    <a class="button" href="impact.html">✅ View Impact Proof</a>
   </div>
 
-  <div class="section card">
-    <h2>Why PoIP Matters</h2>
-    <p>This is more than a protocol — it's a movement. Join a global system that verifies where funds go, how they’re used, and lets you contribute directly to real-world change through a transparent, smart-contract-controlled treasury.</p>
+  <div class="section">
+    <h2>$GROW Rewards</h2>
+    <p>Stakers receive <span class="highlight">$GROW</span> — a non-transferable symbolic token that reflects participation in real-world impact. $GROW is used to vote on selected bounties through its own dedicated interface. It cannot be sold, traded, or speculated upon.</p>
   </div>
 
-  <div class="section card">
-    <h2>The PoIP Foundation</h2>
-    <p>The Proof of Impact Foundation is a UK-registered nonprofit that supports the growth and adoption of the PoIP protocol. It helps onboard NGOs, supports infrastructure, and communicates progress. The Foundation holds no $POI or $GROW, cannot access funds, and will phase into an advisory role once the protocol is fully autonomous.</p>
+  <div class="section">
+    <h2>Protocol Values</h2>
+    <p>PoIP is engineered to be trustless, transparent, and permanent. All aid, innovation, and environmental funding flows directly from treasury to proof. The Foundation supports outreach, maintenance, and upgrade coordination — but never holds funds or influence over token supply.</p>
   </div>
 
-  <footer>
-    &copy; 2025 Proof of Impact Protocol. Built for global good.<br/>
-    Licensed under GNU GPL v3.0.
-  </footer>
+  <div class="footer">
+    &copy; 2025 Proof of Impact Protocol. All rights reserved. <br/>
+    Licensed under GNU GPL v3.0. | Interface Version 2.8
+  </div>
 
 </body>
 </html>
