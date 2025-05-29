@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Impact Bounty – PoIP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #1d3557;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1d3557;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    button {
+      background-color: #457b9d;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+    button:hover {
+      background-color: #365f7c;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #eee;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Submit Impact Bounty</h1>
+    <p>NGOs and public-good organizations can request funding by submitting verifiable bounty proposals.</p>
+  </header>
+
+  <div class="container">
+    <h2>Impact Bounty Form</h2>
+    <p>Please complete the form below to request treasury funding for a public impact project.</p>
+
+    <label for="orgName">Organization Name</label>
+    <input type="text" id="orgName" placeholder="e.g. Global Reforest Initiative" />
+
+    <label for="region">Target Region</label>
+    <input type="text" id="region" placeholder="e.g. Kenya, Amazonas, South Asia" />
+
+    <label for="category">Impact Category</label>
+    <select id="category">
+      <option>Environmental</option>
+      <option>Humanitarian</option>
+      <option>Innovation</option>
+    </select>
+
+    <label for="amount">Requested Funding (GBP)</label>
+    <input type="number" id="amount" placeholder="e.g. 25,000" />
+
+    <label for="proofMethod">Planned Proof of Impact</label>
+    <textarea id="proofMethod" rows="4" placeholder="e.g. Drone footage, satellite NDVI, transaction receipts, before/after photos"></textarea>
+
+    <label for="wallet">Your ETH/Polygon Wallet Address</label>
+    <input type="text" id="wallet" placeholder="e.g. 0x1234..." />
+
+    <button type="submit">Submit Bounty Request</button>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Proof of Impact Protocol – Simulation Interface | All data non-binding. Licensed under GNU GPL v3.0
+  </div>
+
+</body>
+</html>
