@@ -2,51 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proof of Impact Protocol</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
-      color: #333;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f7fb;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      color: #333;
     }
     header {
-      background: #222;
+      background-color: #111;
       color: #fff;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
     }
-    main {
-      padding: 30px;
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    .container {
       max-width: 900px;
-      margin: auto;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    a {
-      color: #0077cc;
-    }
-    .section {
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
       margin-bottom: 40px;
     }
-    footer {
-      background: #eee;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-    }
     .button {
-      display: inline-block;
-      background: #0077cc;
+      background-color: #0077cc;
       color: #fff;
-      padding: 10px 20px;
+      padding: 14px;
+      text-align: center;
       text-decoration: none;
-      margin: 10px 0;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background-color: #005fa3;
+    }
+    .info {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+    .info h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+      font-size: 14px;
+    }
+    footer a {
+      color: #0077cc;
     }
   </style>
 </head>
@@ -54,48 +77,35 @@
 
 <header>
   <h1>Proof of Impact Protocol (PoIP)</h1>
-  <p>A trustless system for funding real-world impact</p>
+  <p>Trustless infrastructure for funding humanitarian, climate, and innovation bounties</p>
 </header>
 
-<main>
+<div class="container">
 
-  <div class="section">
-    <h2>Live Components</h2>
+  <div class="button-grid">
+    <a href="stake.html" class="button">Stake $POI – Earn $GROW</a>
+    <a href="grow.html" class="button">Use $GROW – Impact Voting</a>
+    <a href="treasury-live.html" class="button">Live Treasury Balance</a>
+    <a href="presentation.html" class="button">PoIP Overview & Pitch</a>
+    <a href="whitepaper.html" class="button">Read the Whitepaper</a>
+    <a href="foundation.html" class="button">The Foundation</a>
+  </div>
+
+  <div class="info">
+    <h2>What is PoIP?</h2>
+    <p>The Proof of Impact Protocol (PoIP) is an autonomous, non-profit blockchain system that funds verifiable global impact using treasury yield, not speculation or donations. It uses:</p>
     <ul>
-      <li><a href="stake.html">Stake $POI – Earn $GROW</a></li>
-      <li><a href="grow.html">$GROW Balance & Participation</a></li>
-      <li><a href="treasury-live.html">Live Treasury View</a></li>
-      <li><a href="presentation.html">Pitch & Overview Page</a></li>
-      <li><a href="foundation.html">The Proof of Impact Foundation</a></li>
-      <li><a href="whitepaper.html">Read the Whitepaper</a></li>
+      <li>A low-risk DeFi treasury with transparent yield strategy</li>
+      <li>$POI staking to bootstrap reserves and enable participation</li>
+      <li>$GROW as a symbolic, non-tradable reward token with a dedicated voting page</li>
+      <li>On-chain bounty funding with AI-flagged proof verification</li>
+      <li>No DAO, no profit motive, and no custodial human control</li>
     </ul>
+    <p>The system is designed to last decades — immune to failure, speculation, and governance risk. It’s regenerative by default, and mathematically governed from day one.</p>
   </div>
 
-  <div class="section">
-    <h2>About the Protocol</h2>
-    <p>PoIP is a fully autonomous protocol that allocates treasury yield to verified humanitarian, environmental, and scientific bounties — without human governance or speculation. The protocol is powered by:</p>
-    <ul>
-      <li>A conservative yield-generating treasury</li>
-      <li>A staking system using the $POI token</li>
-      <li>A symbolic reputation token called $GROW</li>
-      <li>An AI advisory layer with smart contract fail-safes</li>
-      <li>On-chain proof submission and NGO verification logic</li>
-    </ul>
-    <p>The protocol cannot be paused, changed, or owned. It is governed entirely by smart contracts and oracle-fed proof systems. The Foundation exists only to support early infrastructure and public transparency.</p>
-  </div>
-
-  <div class="section">
-    <h2>What is $POI?</h2>
-    <p>$POI is the fixed-supply governance-aligned token of the protocol. It is used for staking, treasury bootstrapping, and potential future DEX visibility. It is not a reward-bearing or speculative asset. Most supply is treasury-held. A small portion may be used to bootstrap liquidity and build yield capacity.</p>
-  </div>
-
-  <div class="section">
-    <h2>What is $GROW?</h2>
-    <p>$GROW is a symbolic, non-transferable token earned by staking $POI. It cannot be bought or sold and has no market value. $GROW is used to access a dedicated participation page where specific bounties may be voted on using $GROW voting weight. This provides emotional and reputational engagement without introducing financial risk or governance complexity.</p>
-  </div>
-
-  <div class="section">
-    <h2>Important Addresses (Polygon Mainnet)</h2>
+  <div class="info">
+    <h2>Token & Contract Addresses</h2>
     <ul>
       <li><strong>$POI Token:</strong> 0xba0E9625B37C2F52678D096Ad2c33B940FF6C921</li>
       <li><strong>$GROW Token:</strong> 0x975D8d9D9c62416662d9c01A197522102aADDf20</li>
@@ -104,11 +114,10 @@
     </ul>
   </div>
 
-</main>
+</div>
 
 <footer>
-  <p>Proof of Impact Protocol (PoIP) v2.8 – June 2025</p>
-  <p>Licensed under GNU GPL v3.0 – <a href="https://poiarchitect.github.io/whitepaper.html">Read Full Whitepaper</a></p>
+  Proof of Impact Protocol (PoIP) – v2.8, June 2025 | Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3.0</a>
 </footer>
 
 </body>
