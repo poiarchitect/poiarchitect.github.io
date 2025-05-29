@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proof of Impact Protocol (PoIP)</title>
+  <title>Proof of Impact Protocol</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,21 +28,23 @@
       color: #cbd5e1;
     }
     .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #0f172a;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 30px 20px;
     }
     .card {
       background: white;
       border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
+      padding: 25px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 720px;
+      text-align: center;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #0f172a;
     }
     .metrics {
       display: flex;
@@ -50,7 +52,7 @@
       align-items: center;
     }
     .metrics div {
-      margin: 10px 0;
+      margin: 12px 0;
       font-weight: bold;
       font-size: 1.2rem;
     }
@@ -91,49 +93,62 @@
     <p>Stake. Fund Real Impact. Earn Symbolic Rewards.</p>
   </header>
 
-  <div class="section card">
-    <h2>What is PoIP?</h2>
-    <p>PoIP is a decentralized protocol that lets users stake $POI to grow a transparent treasury. Yield is used to fund real-world bounties — verified impact in aid, innovation, and climate recovery. Stakers receive $GROW as a symbolic reward for their support.</p>
-  </div>
-
-  <div class="section card">
-    <h2>Live Impact Metrics</h2>
-    <div class="metrics">
-      <div>$XX,XXX<br/>Treasury Balance</div>
-      <div>XXX<br/>Total POI Staked</div>
-      <div>XX<br/>Bounties Verified</div>
+  <div class="section">
+    <div class="card">
+      <h2>What is PoIP?</h2>
+      <p>PoIP is a decentralized protocol that lets users stake $POI to grow a transparent treasury. Yield is used to fund real-world bounties — verified impact in aid, innovation, and climate recovery. Stakers receive $GROW as a symbolic reward for their support.</p>
     </div>
   </div>
 
-  <div class="section card">
-    <h2>Quick Access</h2>
-    <div class="quick-access">
-      <a href="stake.html">Stake Now</a>
-      <a href="treasury-live.html">Live Treasury</a>
-      <a href="presentation.html">View Summary</a>
-      <a href="grow.html">$GROW Balance</a>
-      <a href="impact.html">View Impact Proof</a>
+  <div class="section">
+    <div class="card">
+      <h2>Live Impact Metrics</h2>
+      <div class="metrics">
+        <div>$XX,XXX<br><span style="font-weight: normal;">Treasury Balance</span></div>
+        <div>XXX<br><span style="font-weight: normal;">Total POI Staked</span></div>
+        <div>XX<br><span style="font-weight: normal;">Bounties Verified</span></div>
+      </div>
     </div>
   </div>
 
-  <div class="section card">
-    <h2>Live Contract Addresses</h2>
-    <div class="contract-section">
-      <a href="https://polygonscan.com/address/0x30f693555e4a1eb8e76322079b11E12ee439bcC1" target="_blank">View Treasury Vault</a>
-      <a href="https://polygonscan.com/address/0xba0E9625B37C2F52678D096Ad2c33B940FF6C921" target="_blank">View $POI Token</a>
-      <a href="https://polygonscan.com/address/0x975D8d9D9c62416662d9c01A197522102aADDf20" target="_blank">View $GROW Token</a>
+  <div class="section">
+    <div class="card">
+      <h2>Quick Access</h2>
+      <div class="quick-access">
+        <a href="stake.html">Stake Now</a>
+        <a href="treasury-live.html">Live Treasury</a>
+        <a href="presentation.html">View Summary</a>
+        <a href="grow.html">$GROW Balance</a>
+        <a href="impact.html">View Impact Proof</a>
+      </div>
     </div>
   </div>
 
-  <div class="section card">
-    <h2>Why PoIP Matters</h2>
-    <p>This is more than a protocol — it's a movement. Join a global system that verifies where funds go, how they’re used, and lets you contribute directly to real-world change through a transparent, smart-contract-controlled treasury.</p>
+  <div class="section">
+    <div class="card">
+      <h2>Live Contract Addresses</h2>
+      <div class="contract-section">
+        <a href="https://polygonscan.com/address/0x30f693555e4a1eb8e76322079b11E12ee439bcC1" target="_blank">View Treasury Vault</a>
+        <a href="https://polygonscan.com/address/0xba0E9625B37C2F52678D096Ad2c33B940FF6C921" target="_blank">View $POI Token</a>
+        <a href="https://polygonscan.com/address/0x975D8d9D9c62416662d9c01A197522102aADDf20" target="_blank">View $GROW Token</a>
+      </div>
+    </div>
   </div>
 
-  <div class="section card">
-    <h2>The PoIP Foundation</h2>
-    <p>The Proof of Impact Foundation is a UK-registered nonprofit that supports the growth and adoption of the PoIP protocol. It plays a coordination role — helping onboard NGOs, securing grant support, and managing public infrastructure like the website and documentation.</p>
-    <p>Importantly, the Foundation holds no $POI or $GROW tokens, cannot access treasury funds, and does not control protocol execution. All on-chain logic is fully decentralized and governed by immutable smart contracts. As the protocol becomes fully autonomous, the Foundation will phase into an advisory role — supporting AI infrastructure and public transparency without interfering in decision-making.</p>
+  <div class="section">
+    <div class="card">
+      <h2>Why PoIP Matters</h2>
+      <p>This is more than a protocol — it's a movement. Join a global system that verifies where funds go, how they’re used, and lets you contribute directly to real-world change through a transparent, smart-contract-controlled treasury.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card">
+      <h2>The PoIP Foundation</h2>
+      <p>The Proof of Impact Foundation is a UK-registered nonprofit that supports the growth and adoption of the PoIP protocol. It plays a coordination role — helping onboard NGOs, securing grant support, and managing public infrastructure like the website and documentation.</p>
+      <p>Importantly, the Foundation holds no $POI or $GROW tokens, cannot access treasury funds, and does not control protocol execution. All on-chain logic is fully decentralized and managed by smart contracts.</p>
+      <p>As the protocol becomes fully autonomous, the Foundation will phase into an advisory role — supporting AI infrastructure and transparency without interfering in execution.</p>
+    </div>
   </div>
 
   <footer>
