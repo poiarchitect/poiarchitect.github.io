@@ -9,39 +9,56 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6fa;
+      background: #f5f7fa;
       color: #2c3e50;
-      text-align: center;
     }
 
     header {
-      background: #111;
-      padding: 30px 0;
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      padding: 60px 20px;
+      text-align: center;
     }
 
     header h1 {
       color: #fff;
-      font-size: 32px;
-      margin: 0;
-      letter-spacing: 1px;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #dce3ec;
+      font-size: 18px;
+      margin: 0 auto;
+      max-width: 600px;
     }
 
     .container {
-      padding: 40px 20px;
-      max-width: 900px;
+      padding: 60px 30px;
+      max-width: 1100px;
       margin: auto;
     }
 
-    h2 {
-      font-size: 24px;
-      margin-top: 40px;
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      font-size: 28px;
+      border-left: 5px solid #007bff;
+      padding-left: 15px;
+      margin-bottom: 20px;
       color: #2c3e50;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
     }
 
     .button-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
       margin-top: 30px;
     }
@@ -50,56 +67,67 @@
       background: #007bff;
       color: white;
       text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 6px;
       font-size: 16px;
-      transition: background 0.3s, transform 0.2s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .btn:hover {
       background: #0056b3;
-      transform: scale(1.05);
+      transform: translateY(-2px);
     }
 
     footer {
-      margin-top: 60px;
+      text-align: center;
       font-size: 14px;
       color: #999;
-      padding-bottom: 40px;
+      padding: 30px 20px;
+      background: #f1f3f6;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Proof of Impact Protocol (PoIP)</h1>
+    <h1>Proof of Impact Protocol</h1>
+    <p>A trustless, transparent infrastructure for global aid, innovation, and environmental funding—powered by DeFi and verified proof.</p>
   </header>
 
   <div class="container">
-    <h2>Live Interface</h2>
-    <div class="button-grid">
-      <a class="btn" href="presentation.html">Overview & Pitch</a>
-      <a class="btn" href="stake.html">Staking Interface</a>
-      <a class="btn" href="grow.html">$GROW Rewards</a>
-      <a class="btn" href="treasury-live.html">Live Treasury View</a>
-      <a class="btn" href="bounty-fund.html">Bounty Funding</a>
-    </div>
+    <section>
+      <h2>Live Platform Interfaces</h2>
+      <p>Explore the live components of the PoIP system, including staking, treasury tracking, reward systems, and verified bounty flows.</p>
+      <div class="button-grid">
+        <a class="btn" href="presentation.html">Overview & Pitch</a>
+        <a class="btn" href="stake.html">Staking Interface</a>
+        <a class="btn" href="grow.html">$GROW Rewards</a>
+        <a class="btn" href="treasury-live.html">Live Treasury View</a>
+        <a class="btn" href="bounty-fund.html">Bounty Funding</a>
+      </div>
+    </section>
 
-    <h2>Documentation</h2>
-    <div class="button-grid">
-      <a class="btn" href="whitepaper.html">Whitepaper v2.8</a>
-      <a class="btn" href="foundation.html">The Foundation</a>
-    </div>
+    <section>
+      <h2>Core Documentation</h2>
+      <p>Access the whitepaper, foundation structure, and design philosophy behind the Proof of Impact Protocol. These documents outline our architecture and long-term roadmap.</p>
+      <div class="button-grid">
+        <a class="btn" href="whitepaper.html">Whitepaper v2.8</a>
+        <a class="btn" href="foundation.html">The Foundation</a>
+      </div>
+    </section>
 
-    <h2>Verification Examples</h2>
-    <div class="button-grid">
-      <a class="btn" href="proof-003.html">Proof Example</a>
-    </div>
+    <section>
+      <h2>Verification & Proof Examples</h2>
+      <p>See how impact is verified through real examples. Each proof link represents a funded and fulfilled bounty with visible outcomes.</p>
+      <div class="button-grid">
+        <a class="btn" href="proof-003.html">Proof Example</a>
+      </div>
+    </section>
   </div>
 
   <footer>
-    &copy; 2025 Proof of Impact Protocol. All rights reserved.
+    &copy; 2025 Proof of Impact Protocol. Built for public good. All rights reserved.
   </footer>
 
 </body>
